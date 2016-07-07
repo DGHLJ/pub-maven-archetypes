@@ -2163,20 +2163,22 @@
                     <exists>${basedir}/bin/j2objc</exists>
                 </file>
             </activation>
-            <plugins>
-                <plugin>
-                    <groupId>com.smoope.utils</groupId>
-                    <artifactId>j2objc-maven-plugin</artifactId>
-                    <version>${j2objc.version}</version>
-                    <configuration>
-                        <j2objcPath>${basedir}/bin/j2objc</j2objcPath>
-                        <useArc>true</useArc>
-                        <noPackageDirectories>true</noPackageDirectories>
-                        <sourcePath>${project.basedir}/src/main/java</sourcePath>
-                        <d>${project.build.directory}/j2objc</d>
-                    </configuration>
-                </plugin>
-            </plugins>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.smoope.utils</groupId>
+                        <artifactId>j2objc-maven-plugin</artifactId>
+                        <version>${j2objc.version}</version>
+                        <configuration>
+                            <j2objcPath>${basedir}/bin/j2objc</j2objcPath>
+                            <useArc>true</useArc>
+                            <noPackageDirectories>true</noPackageDirectories>
+                            <sourcePath>${project.basedir}/src/main/java</sourcePath>
+                            <d>${project.build.directory}/j2objc</d>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <!-- @see http://kotlinlang.org/docs/reference/using-maven.html -->
@@ -2193,23 +2195,25 @@
                     <version>${kotlin.version}</version>
                 </dependency>
             </dependencies>
-            <plugins>
-                <plugin>
-                    <artifactId>kotlin-maven-plugin</artifactId>
-                    <groupId>org.jetbrains.kotlin</groupId>
-                    <version>${kotlin.version}</version>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>kotlin-maven-plugin</artifactId>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <version>${kotlin.version}</version>
 
-                    <executions>
-                        <execution>
-                            <id>compile</id>
-                            <phase>process-sources</phase>
-                            <goals>
-                                <goal>compile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
+                        <executions>
+                            <execution>
+                                <id>compile</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <!-- @see http://kotlinlang.org/docs/reference/using-maven.html -->
@@ -2226,23 +2230,25 @@
                     <version>${kotlin.version}</version>
                 </dependency>
             </dependencies>
-            <plugins>
-                <plugin>
-                    <artifactId>kotlin-maven-plugin</artifactId>
-                    <groupId>org.jetbrains.kotlin</groupId>
-                    <version>${kotlin.version}</version>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>kotlin-maven-plugin</artifactId>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <version>${kotlin.version}</version>
 
-                    <executions>
-                        <execution>
-                            <id>test-compile</id>
-                            <phase>process-test-sources</phase>
-                            <goals>
-                                <goal>test-compile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
+                        <executions>
+                            <execution>
+                                <id>test-compile</id>
+                                <phase>process-test-sources</phase>
+                                <goals>
+                                    <goal>test-compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 
