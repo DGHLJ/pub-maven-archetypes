@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<extensions>
+    <extension>
+        <groupId>com.github.sviperll</groupId>
+        <artifactId>maven-profiledep-extension</artifactId>
+    </extension>
+    <extension>
+        <groupId>io.takari.maven</groupId>
+        <artifactId>takari-concurrent-localrepo</artifactId>
+        <version>0.11.2</version>
+    </extension>
+    <extension>
+        <groupId>io.takari.maven</groupId>
+        <artifactId>takari-smart-builder</artifactId>
+        <version>0.4.1</version>
+    </extension>
+</extensions>
