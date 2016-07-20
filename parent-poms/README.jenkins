@@ -1,14 +1,11 @@
 ## To have Jenkins displaying the reports use:
 
-
-
 Plugins to install:
 - Static Analysis Collector Plug-in
 - Static Analysis Utilities
 - Checkstyle Plug-in
 - FindBugs Plug-in
 - Jenkins Covertura Plugin
-
 
 ## Under the Cobertura configuration:
 
