@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.archetype</groupId>
-	<artifactId>maven-archetypes</artifactId>
-	<packaging>pom</packaging>
-	<version>1.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.archetype</groupId>
+    <artifactId>maven-archetypes</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
 
-	<modules>
-		<module>parent</module>
-		<module>executable-jar</module>
-		<module>jpa</module>
-		<module>restful-service</module>
-		<module>webapp</module>
-		<module>couchdb-design</module>
-		<module>codequality</module>
-		<module>licenses</module>
-                <module>spring-batch</module>
-  </modules>
+    <modules>
+        <module>parent</module>
+        <module>executable-jar</module>
+        <module>jpa</module>
+        <module>restful-service</module>
+        <module>webapp</module>
+        <module>couchdb-design</module>
+        <!--<module>codequality</module>-->
+        <!--<module>licenses</module>-->
+        <module>spring-batch</module>
+    </modules>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<repositories>
-	</repositories>
+    <repositories>
+    </repositories>
 
-	<pluginRepositories>
-	</pluginRepositories>
+    <pluginRepositories>
+    </pluginRepositories>
 
-	<dependencies>
-	</dependencies>
+    <dependencies>
+    </dependencies>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-		</plugins>
-	</build>
+    <build>
+        <pluginManagement>
+            <plugins>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+        </plugins>
+    </build>
 </project>
