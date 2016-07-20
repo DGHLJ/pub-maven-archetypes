@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<groupId>com.levonk.codequality</groupId>
-	<artifactId>pom</artifactId>
-	<name>pom</name>
-	<url>none</url>
-	<version>1.3.5</version>
-	<packaging>pom</packaging>
-
-
+    <groupId>com.levonk.codequality</groupId>
+    <artifactId>pom</artifactId>
+    <name>Parent POM</name>
+    <url>none</url>
+    <version>1.3.5</version>
+    <packaging>pom</packaging>
 
     <licenses>
         <license>
@@ -29,7 +27,6 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
-
 
     <organization>
         <name>Levon K</name>
@@ -69,15 +66,12 @@
         </repository>
     </distributionManagement>
 
-    
-	<repositories>
-		
-		<repository>
-			<id>elasticsearch-releases</id>
-			<name>ElasticSearch Releases Repository</name>
-			<url>http://oss.sonatype.org/content/repositories/releases/</url>
-		</repository>
-
+    <repositories>
+        <repository>
+            <id>elasticsearch-releases</id>
+            <name>ElasticSearch Releases Repository</name>
+            <url>http://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
         <repository>
             <id>checker-framework-repo</id>
             <url>http://types.cs.washington.edu/m2-repo</url>
@@ -90,15 +84,14 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-   </repositories>
+    </repositories>
 
-	 <pluginRepositories>
+    <pluginRepositories>
         <pluginRepository>
             <id>maven</id>
             <name>Standard Maven repo</name>
             <url>http://repo1.maven.org/maven2</url>
         </pluginRepository>
-
         <pluginRepository>
             <id>spring-snapshots</id>
             <url>http://repo.spring.io/snapshot</url>
@@ -114,13 +107,11 @@
     </pluginRepositories>
 
     <dependencies>
-
         <!-- If you have arbitrary jar that want to deploy into a central maven repository you can use
              %mvn deploy:deploy-file -DgroupId=levonk-imported -DartifactId=levonk-package \
                     -Dversion=1-levonkVersion -Dpackaging=jar -Dfile=otherjar.jar \
                     -Durl=scp://maven.levonk.com.:/maven/repo/path -DrepositoryId=levonk.internal
         -->
-
         <dependency>
             <!-- https://docs.google.com/document/d/1THRUCIzIPRqFSHb67pHV8KMbo55HphSXqlQcIx9oUiI/edit -->
             <groupId>com.google.auto.value</groupId>
@@ -128,27 +119,24 @@
             <version>${autovalue.version}</version>
             <scope>provided</scope>
         </dependency>
-
-	<dependency>
-		<!--
-			Automatic generation of the Builder pattern for Java 1.6+
-			http://freebuilder.inferred.org
-			https://github.com/google/FreeBuilder
-		-->
-		<groupId>org.inferred</groupId>
-		<artifactId>freebuilder</artifactId>
-		<version>${freebuilder.version}</version>
-		<optional>true</optional>
-	</dependency>
-
+        <dependency>
+            <!--
+                Automatic generation of the Builder pattern for Java 1.6+
+                http://freebuilder.inferred.org
+                https://github.com/google/FreeBuilder
+            -->
+            <groupId>org.inferred</groupId>
+            <artifactId>freebuilder</artifactId>
+            <version>${freebuilder.version}</version>
+            <optional>true</optional>
+        </dependency>
         <!-- Runtime Testing -->
         <dependency>
             <!-- https://github.com/rawls238/Scientist4J -->
-		<groupId>com.github.rawls238</groupId>
-    		<artifactId>Scientist4JCore</artifactId>
-		<version>${scientist4j.version}</version>
+            <groupId>com.github.rawls238</groupId>
+            <artifactId>Scientist4JCore</artifactId>
+            <version>${scientist4j.version}</version>
         </dependency>
-
         <!-- Static Analysis -->
         <dependency>
             <!-- groupId>net.sourceforge.findbugs</groupId -->
@@ -157,7 +145,6 @@
             <version>${findbugs-extra.version}</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <!-- groupId>net.sourceforge.findbugs</groupId -->
             <groupId>com.google.code.findbugs</groupId>
@@ -165,14 +152,11 @@
             <version>${findbugs-extra.version}</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
-
-
         <!-- Apache
 	<dependency>
 		<groupId>org.apache.commons</groupId>
@@ -193,14 +177,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
             <version>${equalsverifier.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- Mock framework -->
         <dependency>
             <groupId>org.mockito</groupId>
@@ -208,22 +190,21 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- Logging Dependencies -->
-	<dependency>
-		<!-- @see http://engineering.godaddy.com/logging-the-easy-way/ -->
-		<!-- @see https://github.com/godaddy/godaddy-logger -->
-		<groupId>com.godaddy</groupId>
-		<artifactId>logging</artifactId>
-		<version>${gdlogger.version}</version>
-		<exclusions>
-			<exclusion>
-				<!-- included explicityly -->
-				<groupId>net.logstash.logback</groupId>
-				<artifactId>logstash-logback-encoder</artifactId>
-			</exclusion>
-		</exclusions>
-	</dependency>
+        <dependency>
+            <!-- @see http://engineering.godaddy.com/logging-the-easy-way/ -->
+            <!-- @see https://github.com/godaddy/godaddy-logger -->
+            <groupId>com.godaddy</groupId>
+            <artifactId>logging</artifactId>
+            <version>${gdlogger.version}</version>
+            <exclusions>
+                <exclusion>
+                    <!-- included explicityly -->
+                    <groupId>net.logstash.logback</groupId>
+                    <artifactId>logstash-logback-encoder</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -268,8 +249,8 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-        	<!-- @see http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html#maven -->
-        	<!-- annotations from the Checker Framework: nullness, interning, locking, ... -->
+            <!-- @see http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html#maven -->
+            <!-- annotations from the Checker Framework: nullness, interning, locking, ... -->
             <groupId>org.checkerframework</groupId>
             <artifactId>checker-qual</artifactId>
             <version>${checkers.version}</version>
@@ -280,7 +261,7 @@
             <version>${checkers.version}</version>
         </dependency>
         <dependency>
-        	<!-- The annotated JDK to use (change to jdk7 if using Java 7) -->
+            <!-- The annotated JDK to use (change to jdk7 if using Java 7) -->
             <groupId>org.checkerframework</groupId>
             <artifactId>jdk8</artifactId>
             <version>${checkers.version}</version>
@@ -288,92 +269,93 @@
     </dependencies>
 
     <dependencyManagement>
-		<!-- provides additional date-time classes that complement those in Java SE 8. -->
-		<!-- @see http://www.threeten.org/threeten-extra/ -->
-		<dependencies><dependency>
-			<groupId>org.threeten</groupId>
-			<artifactId>threeten-extra</artifactId>
-			<version>${threeten-extra.version}</version>
-		</dependency>
+        <!-- provides additional date-time classes that complement those in Java SE 8. -->
+        <!-- @see http://www.threeten.org/threeten-extra/ -->
+        <dependencies>
+            <dependency>
+                <groupId>org.threeten</groupId>
+                <artifactId>threeten-extra</artifactId>
+                <version>${threeten-extra.version}</version>
+            </dependency>
 
-        	<!-- Togglz Feature Flags for the Java platform -->
-        	<!-- @see http://www.togglz.org/ -->
-		<!-- Togglz for Servlet environments (mandatory) -->
-		<dependency>
-			<groupId>org.togglz</groupId>
-			<artifactId>togglz-servlet</artifactId>
-			<version>${togglz.version}</version>
-		</dependency>
-		<!-- Togglz Web Admin Console -->
-		<!-- Operationaly @see http://localhost:8080/myapp/togglz/ -->
-		<dependency>
-			<groupId>org.togglz</groupId>
-			<artifactId>togglz-console</artifactId>
-			<version>${togglz.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.togglz</groupId>
-			<artifactId>togglz-spring-boot-starter</artifactId>
-			<version>${togglz.version}</version>
-		</dependency>
+            <!-- Togglz Feature Flags for the Java platform -->
+            <!-- @see http://www.togglz.org/ -->
+            <!-- Togglz for Servlet environments (mandatory) -->
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-servlet</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
+            <!-- Togglz Web Admin Console -->
+            <!-- Operationaly @see http://localhost:8080/myapp/togglz/ -->
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-console</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-spring-boot-starter</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
 
-		<!-- REST testing framework -->
-		<!-- @see http://harmingcola.github.io/contract/ -->
-		<dependency>
-			<groupId>org.seekay</groupId>
-			<artifactId>contract-server</artifactId>
-			<version>${contract.version}</version>
-			<scope>test</scope>        		
-		</dependency>
-		<dependency>
-			<groupId>org.seekay</groupId>
-			<artifactId>contract-client</artifactId>
-			<version>${contract.version}</version>
-			<scope>test</scope>        		
-		</dependency>
+            <!-- REST testing framework -->
+            <!-- @see http://harmingcola.github.io/contract/ -->
+            <dependency>
+                <groupId>org.seekay</groupId>
+                <artifactId>contract-server</artifactId>
+                <version>${contract.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.seekay</groupId>
+                <artifactId>contract-client</artifactId>
+                <version>${contract.version}</version>
+                <scope>test</scope>
+            </dependency>
 
-		<!-- Excellent servlet based upload library when you can't go to S3 -->
-		<!-- @see https://github.com/Elopteryx/upload-parser -->
-		<dependency>
-		    <groupId>com.github.elopteryx</groupId>
-		    <artifactId>upload-parser</artifactId>
-		    <version>2.1.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.github.elopteryx</groupId>
-		    <artifactId>upload-parser-jaxrs</artifactId>
-		    <version>2.1.0</version>
-		</dependency>
-			<dependency>
-				<!-- https://github.com/OpenHFT/Zero-Allocation-Hashing -->
-				<groupId>net.openhft</groupId>
-				<artifactId>zero-allocation-hashing</artifactId>
-				<version>${zeroallochash.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.jayway.restassured</groupId>
-				<artifactId>rest-assured</artifactId>
-				<version>${restassured.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.jayway.restassured</groupId>
-				<artifactId>xml-path</artifactId>
-				<version>${restassured.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.jayway.restassured</groupId>
-				<artifactId>json-schema-validator</artifactId>
-				<version>${restassured.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.jayway.restassured</groupId>
-				<artifactId>spring-mock-mvc</artifactId>
-				<version>${restassured.version}</version>
-				<scope>test</scope>
-			</dependency>
+            <!-- Excellent servlet based upload library when you can't go to S3 -->
+            <!-- @see https://github.com/Elopteryx/upload-parser -->
+            <dependency>
+                <groupId>com.github.elopteryx</groupId>
+                <artifactId>upload-parser</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.elopteryx</groupId>
+                <artifactId>upload-parser-jaxrs</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+            <dependency>
+                <!-- https://github.com/OpenHFT/Zero-Allocation-Hashing -->
+                <groupId>net.openhft</groupId>
+                <artifactId>zero-allocation-hashing</artifactId>
+                <version>${zeroallochash.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.restassured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${restassured.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.restassured</groupId>
+                <artifactId>xml-path</artifactId>
+                <version>${restassured.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.restassured</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>${restassured.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.restassured</groupId>
+                <artifactId>spring-mock-mvc</artifactId>
+                <version>${restassured.version}</version>
+                <scope>test</scope>
+            </dependency>
 
             <!-- Add Cofoja Design By Contract lib when available -->
             <dependency>
@@ -531,25 +513,25 @@
                 <artifactId>checker-framework</artifactId>
                 <version>1.8.0</version>
             </dependency>
-			<dependency>
-				<!-- @see https://github.com/mauricio/postgresql-async -->
-				<groupId>com.github.mauricio</groupId>
-				<artifactId>postgresql-async_2.11</artifactId>
-				<version>${jdbcasync.version}</version>
-			</dependency>
-			<dependency>
-				<!-- @see https://github.com/mauricio/postgresql-async -->
-				<!-- please prefer postgresql over mysql. -->
-				<groupId>com.github.mauricio</groupId>
-				<artifactId>mysql-async_2.11</artifactId>
-				<version>${jdbcasync.version}</version>
-			</dependency>
-			<dependency>
-				<!-- @see http://javachannel.org/posts/external-program-invocation-in-java/ -->
-				<groupId>org.zeroturnaround</groupId>
-				<artifactId>zt-exec</artifactId>
-				<version>${ztexec.version}</version>
-			</dependency>
+            <dependency>
+                <!-- @see https://github.com/mauricio/postgresql-async -->
+                <groupId>com.github.mauricio</groupId>
+                <artifactId>postgresql-async_2.11</artifactId>
+                <version>${jdbcasync.version}</version>
+            </dependency>
+            <dependency>
+                <!-- @see https://github.com/mauricio/postgresql-async -->
+                <!-- please prefer postgresql over mysql. -->
+                <groupId>com.github.mauricio</groupId>
+                <artifactId>mysql-async_2.11</artifactId>
+                <version>${jdbcasync.version}</version>
+            </dependency>
+            <dependency>
+                <!-- @see http://javachannel.org/posts/external-program-invocation-in-java/ -->
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>zt-exec</artifactId>
+                <version>${ztexec.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -562,19 +544,19 @@
     -->
     <build>
         <plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-site-plugin</artifactId>
-			<version>${site.version}</version>
-			<executions>
-				<execution>
-					<id>attach-descriptor</id>
-					<goals>
-						<goal>attach-descriptor</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${site.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-descriptor</id>
+                        <goals>
+                            <goal>attach-descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!--http://jakub.marchwicki.pl/posts/2015/06/04/maven-wrapper/
                 run to initialize:   mvn  wrapper:wrapper -N
                 use mvnw afterward
@@ -583,7 +565,7 @@
                 <groupId>io.takari</groupId>
                 <artifactId>maven-wrapper</artifactId>
                 <version>${wrapper.version}</version>
-                <inherited>false</inherited>       
+                <inherited>false</inherited>
                 <configuration>
                     <mavenVersion>${maven.version}</mavenVersion>
                 </configuration>
@@ -606,7 +588,7 @@
                 </configuration>
                 <executions>
                     <execution>
-			<phase>test</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -620,7 +602,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
 
             <plugin>
                 <artifactId>maven-install-plugin</artifactId>
@@ -645,31 +627,31 @@
                     <fork>true</fork>
                     <meminitial>128m</meminitial>
                     <maxmem>512m</maxmem>
-			<!--<annotationProcessors>
-                		<annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.interning.InterningChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.lock.LockChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.regex.RegexChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.formatter.FormatterChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.signature.SignatureChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.linear.LinearChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.igj.IGJChecker</annotationProcessor>
-                		<annotationProcessor>org.checkerframework.checker.javari.JavariChecker</annotationProcessor>
+                    <!--<annotationProcessors>
+                                <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.interning.InterningChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.lock.LockChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.regex.RegexChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.formatter.FormatterChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.signature.SignatureChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.linear.LinearChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.igj.IGJChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.javari.JavariChecker</annotationProcessor>
 
-                        <annotationProcessor>org.checkerframework.checker.fenum.FenumChecker</annotationProcessor>
-                        <annotationProcessor>org.checkerframework.checker.tainting.TaintingChecker</annotationProcessor>
-                        <annotationProcessor>org.checkerframework.checker.propkey.PropertyKeyChecker</annotationProcessor>
-                        <annotationProcessor>org.checkerframework.checker.i18n.I18nChecker</annotationProcessor>
-                        <annotationProcessor>org.checkerframework.checker.compilermsgs.CompilerMessagesChecker</annotationProcessor>
-                        <annotationProcessor>org.checkerframework.checker.units.UnitsChecker</annotationProcessor>
-                        <annotationProcessor>org.checkerframework.common.subtyping.SubtypingChecker</annotationProcessor>
-            		</annotationProcessors>-->
-			<compilerArgs>
-				<!-- location of the annotated JDK, which comes from a Maven dependency -->
-				<arg>-Xbootclasspath/p:${annotatedJdk}</arg>
-				<!-- Uncomment the following line if using Java 7. -->
-				<!-- <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> -->
-			</compilerArgs>
+                                <annotationProcessor>org.checkerframework.checker.fenum.FenumChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.tainting.TaintingChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.propkey.PropertyKeyChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.i18n.I18nChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.compilermsgs.CompilerMessagesChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.units.UnitsChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.common.subtyping.SubtypingChecker</annotationProcessor>
+                            </annotationProcessors>-->
+                    <compilerArgs>
+                        <!-- location of the annotated JDK, which comes from a Maven dependency -->
+                        <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
+                        <!-- Uncomment the following line if using Java 7. -->
+                        <!-- <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> -->
+                    </compilerArgs>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -704,61 +686,63 @@
                 </executions>
             </plugin>
 
-			<!-- Static Analysis Tools -->
-			<!--
-				@see http://www.mojohaus.org/versions-maven-plugin/index.html
-				@see http://blog.xebia.com/keeping-dependencies-up-to-date-in-maven/
-				mvn -U versions:display-plugin-updates
-				mvn -U versions:display-dependency-updates
-			-->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>${versions.version}</version>
-				<executions>
-					<execution>
-						<id>versions-maven-plugin</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>display-dependency-updates</goal>
-							<goal>display-plugin-updates</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<allowIncrementalUpdates>true</allowIncrementalUpdates>
-					<allowMajorUpdates>false</allowMajorUpdates>
-					<allowMinorUpdates>true</allowMinorUpdates>
-					<allowSnapshots>false</allowSnapshots>
-					<processDependencies>true</processDependencies>
-					<processDependencyManagement>true</processDependencyManagement>
-					<outputFile>target/versions-maven-plugin_outdated-dependencies.txt</outputFile>
-   					<rulesUri>https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/master/modules/build-tools/src/main/resources/versions-maven-plugin/versions-maven-plugin_rules.xml</rulesUri>
-				</configuration>
-			</plugin>
+            <!-- Static Analysis Tools -->
+            <!--
+                @see http://www.mojohaus.org/versions-maven-plugin/index.html
+                @see http://blog.xebia.com/keeping-dependencies-up-to-date-in-maven/
+                mvn -U versions:display-plugin-updates
+                mvn -U versions:display-dependency-updates
+            -->
             <plugin>
-				<!--
-					https://github.com/andrewgaul/modernizer-maven-plugin
-					Prevent the use of legacy Java APIs
-				-->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions.version}</version>
+                <executions>
+                    <execution>
+                        <id>versions-maven-plugin</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>display-dependency-updates</goal>
+                            <goal>display-plugin-updates</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <allowIncrementalUpdates>true</allowIncrementalUpdates>
+                    <allowMajorUpdates>false</allowMajorUpdates>
+                    <allowMinorUpdates>true</allowMinorUpdates>
+                    <allowSnapshots>false</allowSnapshots>
+                    <processDependencies>true</processDependencies>
+                    <processDependencyManagement>true</processDependencyManagement>
+                    <outputFile>target/versions-maven-plugin_outdated-dependencies.txt</outputFile>
+                    <rulesUri>
+                        https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/master/modules/build-tools/src/main/resources/versions-maven-plugin/versions-maven-plugin_rules.xml
+                    </rulesUri>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!--
+                    https://github.com/andrewgaul/modernizer-maven-plugin
+                    Prevent the use of legacy Java APIs
+                -->
                 <groupId>org.gaul</groupId>
                 <artifactId>modernizer-maven-plugin</artifactId>
                 <version>${modernizer.version}</version>
-				<configuration>
-					<javaVersion>${java.version}</javaVersion>
-					<failOnViolations>false</failOnViolations>
-				</configuration>
-				<executions>
-					<execution>
-						<id>modernizer</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>modernizer</goal>
-						</goals>
-					</execution>
-				</executions>
+                <configuration>
+                    <javaVersion>${java.version}</javaVersion>
+                    <failOnViolations>false</failOnViolations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>modernizer</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>modernizer</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-			<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${checkstyle.version}</version>
@@ -823,61 +807,63 @@
                                 <requireJavaVersion>
                                     <version>${java.version}</version>
                                 </requireJavaVersion>
-                            <evaluateBeanshell>
-                                <condition>javax.crypto.Cipher.getMaxAllowedKeyLength("AES") > 128</condition>
-                            </evaluateBeanshell>
-                            <reactorModuleConvergence>
-                            <message>Maven-enforcer: The reactor Module Convergance is not valid</message>
-                            <ignoreModuleDependencies>true</ignoreModuleDependencies>
-                        </reactorModuleConvergence>
-                <requireSameVersions>
-                    <plugins>
-                        <plugin>org.apache.maven.plugins:maven-surefire-plugin</plugin>
-                        <plugin>org.apache.maven.plugins:maven-failsafe-plugin</plugin>
-                        <plugin>org.apache.maven.plugins:maven-surefire-report-plugin</plugin>
-                    </plugins>
-                </requireSameVersions>
-                <requireSameVersions>
-                    <dependencies>
-                        <dependency>org.apache.maven</dependency> <!-- or org.apache.maven:* -->
-                    </dependencies>
-                </requireSameVersions>
-                <requireSameVersions>
-                    <dependencies>
-                        <dependency>org.apache.camel</dependency> <!-- or org.apache.camel:* -->
-                    </dependencies>
-                </requireSameVersions>
-                <requireSameVersions>
-                    <dependencies>
-                        <dependency>org.slf4j</dependency> <!-- or org.slf4j:* -->
-                    </dependencies>
-                </requireSameVersions>
-                <requireSameVersions>
-                    <dependencies>
-                        <dependency>org.springframework</dependency> <!-- or org.springframework:* -->
-                    </dependencies>
-                </requireSameVersions>
-                <requireSameVersions>
-                    <dependencies>
-                        <dependency>org.springframework.boot</dependency> <!-- or org.springframework.boot:* -->
-                    </dependencies>
-                </requireSameVersions>
-                <requireSameVersions>
-                    <dependencies>
-                        <dependency>com.jayway.restassured</dependency> <!-- or com.jayway.restassured:* -->
-                    </dependencies>
-                </requireSameVersions>
-                <requireReleaseDeps>
-                    <message>No Snapshots Allowed!</message>
-                    <onlyWhenRelease>true</onlyWhenRelease>
-                    <searchTransitive>false</searchTransitive>
-                    <failWhenParentIsSnapshot>true</failWhenParentIsSnapshot>
-                </requireReleaseDeps>
+                                <evaluateBeanshell>
+                                    <condition>javax.crypto.Cipher.getMaxAllowedKeyLength("AES") > 128</condition>
+                                </evaluateBeanshell>
+                                <reactorModuleConvergence>
+                                    <message>Maven-enforcer: The reactor Module Convergance is not valid</message>
+                                    <ignoreModuleDependencies>true</ignoreModuleDependencies>
+                                </reactorModuleConvergence>
+                                <requireSameVersions>
+                                    <plugins>
+                                        <plugin>org.apache.maven.plugins:maven-surefire-plugin</plugin>
+                                        <plugin>org.apache.maven.plugins:maven-failsafe-plugin</plugin>
+                                        <plugin>org.apache.maven.plugins:maven-surefire-report-plugin</plugin>
+                                    </plugins>
+                                </requireSameVersions>
+                                <requireSameVersions>
+                                    <dependencies>
+                                        <dependency>org.apache.maven</dependency> <!-- or org.apache.maven:* -->
+                                    </dependencies>
+                                </requireSameVersions>
+                                <requireSameVersions>
+                                    <dependencies>
+                                        <dependency>org.apache.camel</dependency> <!-- or org.apache.camel:* -->
+                                    </dependencies>
+                                </requireSameVersions>
+                                <requireSameVersions>
+                                    <dependencies>
+                                        <dependency>org.slf4j</dependency> <!-- or org.slf4j:* -->
+                                    </dependencies>
+                                </requireSameVersions>
+                                <requireSameVersions>
+                                    <dependencies>
+                                        <dependency>org.springframework</dependency> <!-- or org.springframework:* -->
+                                    </dependencies>
+                                </requireSameVersions>
+                                <requireSameVersions>
+                                    <dependencies>
+                                        <dependency>org.springframework.boot
+                                        </dependency> <!-- or org.springframework.boot:* -->
+                                    </dependencies>
+                                </requireSameVersions>
+                                <requireSameVersions>
+                                    <dependencies>
+                                        <dependency>com.jayway.restassured
+                                        </dependency> <!-- or com.jayway.restassured:* -->
+                                    </dependencies>
+                                </requireSameVersions>
+                                <requireReleaseDeps>
+                                    <message>No Snapshots Allowed!</message>
+                                    <onlyWhenRelease>true</onlyWhenRelease>
+                                    <searchTransitive>false</searchTransitive>
+                                    <failWhenParentIsSnapshot>true</failWhenParentIsSnapshot>
+                                </requireReleaseDeps>
                             </rules>
                         </configuration>
                     </execution>
                 </executions>
-        
+
             </plugin>
 
             <plugin>
@@ -905,7 +891,7 @@
                 </configuration>
                 <executions>
                     <execution>
-			<phase>validate</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>pmd</goal>
                             <goal>cpd</goal>
@@ -928,7 +914,7 @@
                     <threshold>Low</threshold>
                     <xmlOutput>true</xmlOutput>
                 </configuration>
-				<executions>
+                <executions>
                     <execution>
                         <phase>validate</phase>
                         <goals>
@@ -938,20 +924,20 @@
                 </executions>
             </plugin>
 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<version>${license.version}</version>
-				<executions>
-					<execution>
-						<id>download-licenses</id>
-						<goals>
-							<goal>download-licenses</goal>
-							<goal>aggregate-add-third-party</goal>
-						</goals>
-						</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${license.version}</version>
+                <executions>
+                    <execution>
+                        <id>download-licenses</id>
+                        <goals>
+                            <goal>download-licenses</goal>
+                            <goal>aggregate-add-third-party</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>com.soebes.maven.plugins.mlv</groupId>
@@ -973,89 +959,89 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            
-			<plugin>
-				<!-- @see https://github.com/basepom/duplicate-finder-maven-plugin/wiki -->
-				<groupId>org.basepom.maven</groupId>
-				<artifactId>duplicate-finder-maven-plugin</artifactId>
-				<version>${duplicate.version}</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<printEqualFiles>false</printEqualFiles>
-					<failBuildInCaseOfDifferentContentConflict>false</failBuildInCaseOfDifferentContentConflict>
-					<failBuildInCaseOfEqualContentConflict>false</failBuildInCaseOfEqualContentConflict>
-					<failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
-					<checkCompileClasspath>true</checkCompileClasspath>
-					<checkRuntimeClasspath>true</checkRuntimeClasspath>
-					<checkTestClasspath>true</checkTestClasspath>
-					<skip>false</skip>
-					<quiet>false</quiet>
-					<preferLocal>true</preferLocal>
-					<useResultFile>true</useResultFile>
-					<resultFileMinClasspathCount>2</resultFileMinClasspathCount>
-					<resultFile>${project.build.directory}/duplicate-finder-result.xml</resultFile>
-					<includeBootClasspath>false</includeBootClasspath>
-					<bootClasspathProperty>sun.boot.class.path</bootClasspathProperty>
-					<useDefaultResourceIgnoreList>true</useDefaultResourceIgnoreList>
-					<includePomProjects>false</includePomProjects>
-					<useDefaultResourceIgnoreList>true</useDefaultResourceIgnoreList>
-					<!--
-					<exceptions>
-						<exception>
-							<currentProject>false</currentProject>
-							<bootClasspath>false</bootClasspath>
-							<conflictingDependencies>
-								<dependency>
-									<artifactId>...</artifactId>
-									<groupId>...</groupId>
-									<version>...</version>
-									<type>...</type>
-									<classifier>...</classifier>
-								</dependency>
-							</conflictingDependencies>
-							<classes>
-								<class>...</class>
-							</classes>
-							<packages>
-								<package>...</package>
-							</packages>
-							<resources>
-								<resource>...</resource>
-							</resources>
-							<resourcePatterns>
-								<resourcePattern>...</resourcePattern>
-							</resourcePatterns>
-						</exception>
-					</exceptions>
-					<ignoredResourcePatterns>
-						<ignoredResourcePattern>...</ignoredResourcePattern>
-					</ignoredResourcePatterns>
-					<ignoredClassPatterns>
-						<ignoredClassPattern>...</ignoredClassPattern>
-					</ignoredClassPatterns>
-					<ignoredDependencies>
-						<dependency>
-							<artifactId>...</artifactId>
-							<groupId>...</groupId>
-							<version>...</version>
-							<type>...</type>
-							<classifier>...</classifier>
-						</dependency>
-					</ignoredDependencies>
-					<ignoredResources>
-						<ignoredResource>...</ignoredResource>
-					</ignoredResources>
-					-->
-				</configuration>
-			</plugin>
+
+            <plugin>
+                <!-- @see https://github.com/basepom/duplicate-finder-maven-plugin/wiki -->
+                <groupId>org.basepom.maven</groupId>
+                <artifactId>duplicate-finder-maven-plugin</artifactId>
+                <version>${duplicate.version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <printEqualFiles>false</printEqualFiles>
+                    <failBuildInCaseOfDifferentContentConflict>false</failBuildInCaseOfDifferentContentConflict>
+                    <failBuildInCaseOfEqualContentConflict>false</failBuildInCaseOfEqualContentConflict>
+                    <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
+                    <checkCompileClasspath>true</checkCompileClasspath>
+                    <checkRuntimeClasspath>true</checkRuntimeClasspath>
+                    <checkTestClasspath>true</checkTestClasspath>
+                    <skip>false</skip>
+                    <quiet>false</quiet>
+                    <preferLocal>true</preferLocal>
+                    <useResultFile>true</useResultFile>
+                    <resultFileMinClasspathCount>2</resultFileMinClasspathCount>
+                    <resultFile>${project.build.directory}/duplicate-finder-result.xml</resultFile>
+                    <includeBootClasspath>false</includeBootClasspath>
+                    <bootClasspathProperty>sun.boot.class.path</bootClasspathProperty>
+                    <useDefaultResourceIgnoreList>true</useDefaultResourceIgnoreList>
+                    <includePomProjects>false</includePomProjects>
+                    <useDefaultResourceIgnoreList>true</useDefaultResourceIgnoreList>
+                    <!--
+                    <exceptions>
+                        <exception>
+                            <currentProject>false</currentProject>
+                            <bootClasspath>false</bootClasspath>
+                            <conflictingDependencies>
+                                <dependency>
+                                    <artifactId>...</artifactId>
+                                    <groupId>...</groupId>
+                                    <version>...</version>
+                                    <type>...</type>
+                                    <classifier>...</classifier>
+                                </dependency>
+                            </conflictingDependencies>
+                            <classes>
+                                <class>...</class>
+                            </classes>
+                            <packages>
+                                <package>...</package>
+                            </packages>
+                            <resources>
+                                <resource>...</resource>
+                            </resources>
+                            <resourcePatterns>
+                                <resourcePattern>...</resourcePattern>
+                            </resourcePatterns>
+                        </exception>
+                    </exceptions>
+                    <ignoredResourcePatterns>
+                        <ignoredResourcePattern>...</ignoredResourcePattern>
+                    </ignoredResourcePatterns>
+                    <ignoredClassPatterns>
+                        <ignoredClassPattern>...</ignoredClassPattern>
+                    </ignoredClassPatterns>
+                    <ignoredDependencies>
+                        <dependency>
+                            <artifactId>...</artifactId>
+                            <groupId>...</groupId>
+                            <version>...</version>
+                            <type>...</type>
+                            <classifier>...</classifier>
+                        </dependency>
+                    </ignoredDependencies>
+                    <ignoredResources>
+                        <ignoredResource>...</ignoredResource>
+                    </ignoredResources>
+                    -->
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -1083,9 +1069,9 @@
                 <version>${dependency.version}</version>
                 <executions>
                     <execution>
-                    	<goals>
-                    		<goal>properties</goal>
-                    	</goals>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -1170,104 +1156,104 @@
                     </execution>
                 </executions>
             </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-plugin</artifactId>
-				<version>1.9.5</version>
-				<configuration>
-					<goals>install</goals>
-				</configuration>
-			</plugin>
-			<plugin>
-				<!-- @see https://github.com/sviperll/ozymandias/tree/master/coreext-maven-plugin -->
-				<groupId>com.github.sviperll</groupId>
-				<artifactId>coreext-maven-plugin</artifactId>
-				<version>${coreext.version}</version>
-				<configuration>
-					<!-- Required core extensions: -->
-					<extensions combine.children="append">
-						<extension>
-							<groupId>com.github.sviperll</groupId>
-							<artifactId>maven-profiledep-extension</artifactId>
-							<version>${profiledep.version}</version>
-						</extension>
-						<!--
-					            This seems to have been replaced
-					            @see http://takari.io/book/30-team-maven.html#concurrent-safe-local-repository
-						<extension>
-							<groupId>io.takari.maven</groupId>
-							<artifactId>takari-concurrent-localrepo</artifactId>
-							<version>${concurrentrepo.version}</version>
-						</extension>
-						<extension>
-							<groupId>io.takari.maven</groupId>
-							<artifactId>takari-smart-builder</artifactId>
-							<version>${smartbuilder.version}</version>
-						</extension>
-						-->
-					</extensions>
-				</configuration>
-				<executions>
-					<execution>
-						<id>check-coreext</id>
-						<goals>
-							<!--
-								If we dont' meet the requirements of our enviornment then
-								stop everything and complain.   Within Jenkins we should have
-								a pipeline step that will make the enviornment what we expect to be.
-								Something like:
-									* mvn clean
-									* mvn coreext:install
-									* mvn compile
-									* mvn test
-									* mvn integration-test
-									* mvn pitest:run
-									* mvn package
-							-->
-							<goal>check</goal>
-						</goals>
-						<!-- default phase is: -->
-						<!--	<phase>validate</phase>	-->
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.5</version>
+                <configuration>
+                    <goals>install</goals>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- @see https://github.com/sviperll/ozymandias/tree/master/coreext-maven-plugin -->
+                <groupId>com.github.sviperll</groupId>
+                <artifactId>coreext-maven-plugin</artifactId>
+                <version>${coreext.version}</version>
+                <configuration>
+                    <!-- Required core extensions: -->
+                    <extensions combine.children="append">
+                        <extension>
+                            <groupId>com.github.sviperll</groupId>
+                            <artifactId>maven-profiledep-extension</artifactId>
+                            <version>${profiledep.version}</version>
+                        </extension>
+                        <!--
+                                This seems to have been replaced
+                                @see http://takari.io/book/30-team-maven.html#concurrent-safe-local-repository
+                        <extension>
+                            <groupId>io.takari.maven</groupId>
+                            <artifactId>takari-concurrent-localrepo</artifactId>
+                            <version>${concurrentrepo.version}</version>
+                        </extension>
+                        <extension>
+                            <groupId>io.takari.maven</groupId>
+                            <artifactId>takari-smart-builder</artifactId>
+                            <version>${smartbuilder.version}</version>
+                        </extension>
+                        -->
+                    </extensions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-coreext</id>
+                        <goals>
+                            <!--
+                                If we dont' meet the requirements of our enviornment then
+                                stop everything and complain.   Within Jenkins we should have
+                                a pipeline step that will make the enviornment what we expect to be.
+                                Something like:
+                                    * mvn clean
+                                    * mvn coreext:install
+                                    * mvn compile
+                                    * mvn test
+                                    * mvn integration-test
+                                    * mvn pitest:run
+                                    * mvn package
+                            -->
+                            <goal>check</goal>
+                        </goals>
+                        <!-- default phase is: -->
+                        <!--	<phase>validate</phase>	-->
+                    </execution>
+                </executions>
+            </plugin>
 
-			<plugin>
-				<!-- Navigate code by graphs -->
-				<!-- @see https://jqassistant.org/get-started/ -->
-				<groupId>com.buschmais.jqassistant.scm</groupId>
-				<artifactId>jqassistant-maven-plugin</artifactId>
-				<version>${jqassistant.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>scan</goal>
-							<goal>analyze</goal>
-						</goals>
-						<configuration>
-							<failOnViolations>false</failOnViolations>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-	
-			<plugin>
-				<!-- Security scan -->
-				<!-- @see http://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html -->
-				<groupId>org.owasp</groupId>
-				<artifactId>dependency-check-maven</artifactId>
-				<version>${dependencycheck.version}</version>
-				<configuration>
-					<cveValidForHours>8</cveValidForHours>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <!-- Navigate code by graphs -->
+                <!-- @see https://jqassistant.org/get-started/ -->
+                <groupId>com.buschmais.jqassistant.scm</groupId>
+                <artifactId>jqassistant-maven-plugin</artifactId>
+                <version>${jqassistant.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>scan</goal>
+                            <goal>analyze</goal>
+                        </goals>
+                        <configuration>
+                            <failOnViolations>false</failOnViolations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- Security scan -->
+                <!-- @see http://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html -->
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>${dependencycheck.version}</version>
+                <configuration>
+                    <cveValidForHours>8</cveValidForHours>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
 
@@ -1331,37 +1317,37 @@
                     </executions>
                 </plugin>
                 <plugin>
-                	<groupId>org.pitest</groupId>
-                	<artifactId>pitest-maven</artifactId>
-                	<version>${pitest.version}</version>
-                	<configuration>
-                		<targetClasses>
-                			<targetClass>${project.parent.groupId}</targetClass>
-                		</targetClasses>
-                		<targetTests>
-                			<targetTest>${project.parent.groupId}*Test</targetTest>
-                		</targetTests>
-                		<outputFormats>
-                			<!-- Sonar needs XML output -->
-	                		<outputFormat>XML</outputFormat>
-	                		<outputFormat>HTML</outputFormat>
-                		</outputFormats>
-                		<!-- Sonar expects reports to not have timestamps -->
-                		<timestampedReports>false</timestampedReports>
-                	</configuration>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <version>${pitest.version}</version>
+                    <configuration>
+                        <targetClasses>
+                            <targetClass>${project.parent.groupId}</targetClass>
+                        </targetClasses>
+                        <targetTests>
+                            <targetTest>${project.parent.groupId}*Test</targetTest>
+                        </targetTests>
+                        <outputFormats>
+                            <!-- Sonar needs XML output -->
+                            <outputFormat>XML</outputFormat>
+                            <outputFormat>HTML</outputFormat>
+                        </outputFormats>
+                        <!-- Sonar expects reports to not have timestamps -->
+                        <timestampedReports>false</timestampedReports>
+                    </configuration>
                 </plugin>
-			</plugins>
-		</pluginManagement>
+            </plugins>
+        </pluginManagement>
     </build>
 
-	<reporting>
-		<outputDirectory>./target/site</outputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>${maven-project-info-reports-plugin.version}</version>
-			</plugin>
+    <reporting>
+        <outputDirectory>./target/site</outputDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven-project-info-reports-plugin.version}</version>
+            </plugin>
             <plugin>
                 <!-- http://code.google.com/p/testability-explorer/wiki/Readme
                     see available options by running
@@ -1385,19 +1371,19 @@
                 <version>${surefire.version}</version>
             </plugin>
             <!-- static analysis -->
-		<plugin>
-			<!-- @see http://www.mojohaus.org/jdepend-maven-plugin/ -->
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>jdepend-maven-plugin</artifactId>
-			<version>${jdepend.version}</version>
-		</plugin>
-		<plugin>
-			<!-- @see http://www.mojohaus.org/javancss-maven-plugin -->
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>javancss-maven-plugin</artifactId>
-			<version>${javancss.version}</version>
-		</plugin>
-             <plugin>
+            <plugin>
+                <!-- @see http://www.mojohaus.org/jdepend-maven-plugin/ -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+                <version>${jdepend.version}</version>
+            </plugin>
+            <plugin>
+                <!-- @see http://www.mojohaus.org/javancss-maven-plugin -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javancss-maven-plugin</artifactId>
+                <version>${javancss.version}</version>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${checkstyle.version}</version>
@@ -1411,559 +1397,568 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${pmd.version}</version>
             </plugin>
-           
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>${findbugs.version}</version>
-        </plugin>
-		<plugin>
-			<groupId>org.owasp</groupId>
-			<artifactId>dependency-check-maven</artifactId>
-			<version>${dependencycheck.version}</version>
-			<configuration>
-				<cveValidForHours>8</cveValidForHours>
-			</configuration>
-			<reportSets>
-				<reportSet>
-					<reports>
-						<report>aggregate</report>
-					</reports>
-				</reportSet>
-			</reportSets>
-		</plugin>
+            </plugin>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>${dependencycheck.version}</version>
+                <configuration>
+                    <cveValidForHours>8</cveValidForHours>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>aggregate</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
 
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>versions-maven-plugin</artifactId>
-			<version>${versions.version}</version>
-			<reportSets>
-				<reportSet>
-					<reports>
-						<report>dependency-updates-report</report>
-						<report>plugin-updates-report</report>
-						<report>property-updates-report</report>
-					</reports>
-				</reportSet>
-			</reportSets>
-		</plugin>
-		<plugin>
-			<!-- Browse code via SQL & Graphs -->
-			<!-- @see https://jqassistant.org/get-started/ -->
-			<groupId>com.buschmais.jqassistant.scm</groupId>
-			<artifactId>jqassistant-maven-plugin</artifactId>
-			<version>${jqassistant.version}</version>
-			<reportSets>
-				<reportSet>
-					<reports>
-						<report>report</report>
-					</reports>
-				</reportSet>
-			</reportSets>
-		</plugin>
-	</plugins>
-</reporting>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions.version}</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>dependency-updates-report</report>
+                            <report>plugin-updates-report</report>
+                            <report>property-updates-report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <!-- Browse code via SQL & Graphs -->
+                <!-- @see https://jqassistant.org/get-started/ -->
+                <groupId>com.buschmais.jqassistant.scm</groupId>
+                <artifactId>jqassistant-maven-plugin</artifactId>
+                <version>${jqassistant.version}</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
 
 
-	<properties>
-		<start-class>com.levonk.springboot.App</start-class> <!-- should we look for some sort of property test? -->
-		<sonar.exclusions>**/generated-sources/**</sonar.exclusions>
-		<sonar.pitest.mode>active</sonar.pitest.mode>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<maven.version>3.3.9</maven.version>
-		
-		<!-- Checker Framework -->
-		<!-- These properties will be set by the Maven Dependency plugin -->
-		<!-- Change to jdk7 if using Java 7 -->
-		<annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
-		<!-- The type annotations compiler is required if using Java 7. -->
-		<!-- Uncomment the following line if using Java 7. -->
-		<!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->	
-		
-		<!-- version block -->
-		<android.version>2.8.4</android.version>
-		<autovalue.version>1.2</autovalue.version> <!-- 2016-07-07 -->
-		<antlr3.version>3.5.2</antlr3.version>	<!-- 2015-10-06 -->
-		<antlr4.version>4.5.1-1</antlr4.version>	<!-- 2015-10-06 -->
-		<antrun.version>1.7</antrun.version>
-		<avro.version>1.7.7</avro.version>
-		<codequality.version>1.0.9</codequality.version>
-		<checkers.version>1.9.11</checkers.version>	<!-- 2016-02-18 -->
-		<docker.version>0.4.1</docker.version>
-		<duplicate.version>1.2.1</duplicate.version> <!-- 2015-10-06 -->
-		<spring-boot.version>1.3.1.RELEASE</spring-boot.version>
-		<checkstyle.version>2.17</checkstyle.version>	<!-- 2015-10-06 -->
-		<checkstylepuppycrawl.version>6.11.2</checkstylepuppycrawl.version>	<!-- 2015-10-06 -->
-		<commonslang.version>2.6</commonslang.version>
-		<commonslang3.version>3.2.1</commonslang3.version>
-		<compiler.version>3.5.1</compiler.version> <!-- as of 2016-01-09 -->
-		<concurrentrepo.version>0.11.2</concurrentrepo.version>	<!-- 2015-08-18 -->
-		<contract.version>0.0.1</contract.version>	<!-- 2016-04-21 -->
-		<coreext.version>0.20</coreext.version> <!-- as of 2016-04-02 -->
-		<dependency.version>2.8</dependency.version>
-		<dependencycheck.version>1.3.5.1</dependencycheck.version> <!-- as of 2015-08-28 -->
-		<doclava.version>1.0.6</doclava.version>
-		<eclipse.version>2.9</eclipse.version>
-		<enforcer.version>1.4.1</enforcer.version> <!-- 2015-09-01 -->
-		<enforcerextra.version>1.0-beta-4-SNAPSHOT</enforcerextra.version> <!-- 2015-10-06 -->
-		<equalsverifier.version>1.3.1</equalsverifier.version>
-		<errorprone.version>2.0.1</errorprone.version> <!-- as of 2015-03-27 -->
-		<findbugs.version>3.0.3</findbugs.version>	<!-- 2016-02-18 -->
-		<findbugs-extra.version>1.3.9</findbugs-extra.version>
-		<freebuilder.version>1.0-rc8</freebuilder.version> <!-- as of 2015-06-13 -->
-		<gdlogger.version>1.2.2</gdlogger.version>	<!-- 2016-07-04 -->
-		<gpg.version>1.5</gpg.version>
-		<guage-java.version>0.2.2</guage-java.version>	<!-- 2016-04-09 -->
-		<guage-maven-plugin.version>1.0.3</guage-maven-plugin.version>	<!-- 2016-04-09 -->
-		<guava.version>18.0</guava.version> <!-- as of 2014-03-11 -->
-		<kotlin.version>1.0.2</kotlin.version>	<!-- 2016-05-30 -->
-		<j2objc.version>1.1.2</j2objc.version>	<!-- 2016-05-25 -->
-		<jackson1.version>1.9.13</jackson1.version>
-		<jacoco.version>0.7.6.201602180812</jacoco.version>	<!-- 2016-02-21 -->
-		<jalopy.version>1.0-alpha-1</jalopy.version>
-		<javadoc.version>2.10.3</javadoc.version>
-		<javancss.version>2.1</javancss.version>	<!-- 2015-10-06 -->
-		<jdbcasync.version>0.2.18</jdbcasync.version>	<!-- 2015-10-07 -->
-		<jdepend.version>2.0</jdepend.version>	<!-- 2015-10-06 -->
-		<jmeter.version>2.0.1</jmeter.version>	<!-- 2016-07-05 -->
-		<jqassistant.version>1.1.3</jqassistant.version>	<!-- 2016-07-20 -->
-		<!-- as of 2014-03-11 -->
-		<license.version>1.9</license.version>	<!-- 2016-05-29 -->
-		<licenseVerifier.version>0.4</licenseVerifier.version>
-		<licenses.version>1.0</licenses.version>
-		<log4jslf4j.version>2.4</log4jslf4j.version>	<!-- 2015-10-06 -->
-		<log4jcore.version>2.4</log4jcore.version>	<!-- 2015-10-06 -->
-		<logback.version>1.0.13</logback.version>
-		<logback-jackson.version>0.1.2</logback-jackson.version>
-		<logstash.version>4.7</logstash.version>	<!-- 2016-07-07 -->
-		<lombok.version>1.12.5</lombok.version>
-		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>	<!-- 2014-08-27 -->
-		<maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>	<!-- 2016-06-27 -->
-		<mockito.version>1.9.5</mockito.version>
-		<modernizer.version>1.4.0</modernizer.version> <!-- 2015-10-06 -->
-		<newrelic.version>3.21.0</newrelic.version>	<!-- 2015-10-06 -->
-		<nexusclm.version>2.4.1</nexusclm.version>	<!-- 2015-10-22 -->
-		<pitest.version>1.1.6</pitest.version> <!-- 2015-09-29 -->
-		<plexusCompiler.version>2.5</plexusCompiler.version> <!-- 2015-03-27 -->
-		<plexusCompilerErrorProne.version>2.5</plexusCompilerErrorProne.version> <!-- 2015-03-27 -->
-		<pmd.version>3.6</pmd.version>	<!-- 2016-02-18 -->
-		<pojomatic.version>1.0</pojomatic.version>
-		<profiledep.version>0.23-rc1</profiledep.version>	<!-- 2016-07-05 -->
-		<proguard.version>2.0.6</proguard.version>
-		<proguardBase.version>4.9</proguardBase.version>
-		<pure4j.version>0.3.1</pure4j.version>	<!-- 2015-12-03 -->
-		<restassured.version>2.5.0</restassured.version> <!-- 2015-08-27 -->
-		<scientist4j.version>0.1</scientist4j.version>	<!-- 2016-02-24 -->
-		<site.version>3.5</site.version>	<!-- 2016-02-19 -->
-		<slf4j.version>1.7.5</slf4j.version>
-		<smartbuilder.version>0.4.1</smartbuilder.version>	<!-- 2015-06-10 -->
-		<sonar.version>2.3</sonar.version> <!-- 2015-09-29 -->
-		<!-- as of 2012-09-17 -->
-		<source.version>3.0.1</source.version>	<!-- 2016-06-24 -->
-		<!-- as of 2014-03-11 -->
-		<surefire.version>2.16</surefire.version>
-		<!-- as of 2011-04-06 -->
-		<testng.version>6.8.7</testng.version>
-		<threeten-extra.version>0.9</threeten-extra.version>	<!-- 2016-05-23 -->
-		<togglz.version>2.3.0.RC1</togglz.version>	<!-- 2016-05-17 -->
-		<versioneye.version>3.1.0</versioneye.version>	<!-- 2016-06-28 -->
-		<versions.version>2.1</versions.version> <!-- 2015-12-29 -->
-		<wrapper.version>0.1.4</wrapper.version> <!-- 2015-09-14 -->
-		<zeroallochash.version>0.4</zeroallochash.version> <!-- 2015-09-12 -->
-		<ztexec.version>1.8</ztexec.version>
-		<docker.registry.url>https://index.docker.io/v1/</docker.registry.url>
-		<springboot.is.executable>true</springboot.is.executable>
-		<checker-version>1.8.2</checker-version>
-	</properties>
+    <properties>
+        <start-class>com.levonk.springboot.App</start-class> <!-- should we look for some sort of property test? -->
+        <sonar.exclusions>**/generated-sources/**</sonar.exclusions>
+        <sonar.pitest.mode>active</sonar.pitest.mode>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.version>3.3.9</maven.version>
 
-	<profiles>
-		<profile>
-			<id>signed-release</id>
-			<activation>
-				<property>
-					<name>gpg.passphrase</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>${gpg.version}</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>doclava</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/java</exists>
-				</file>
-			</activation>
-			<reporting>
-				<plugins>
-					<plugin>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<configuration>
-							<bootclasspath>${sun.boot.class.path}</bootclasspath>
-							<doclet>com.google.doclava.Doclava</doclet>
-							<useStandardDocletOptions>false</useStandardDocletOptions>
-							<docletArtifact>
-								<groupId>com.google.doclava</groupId>
-								<artifactId>doclava</artifactId>
-								<version>${doclava.version}</version>
-							</docletArtifact>
-							<additionalparam>
-								-hdf project.name "${project.name}"
-								-d ${project.build.directory}/apidocs
-								-quiet
-							</additionalparam>
-						</configuration>
-					</plugin>
-				</plugins>
-			</reporting>
-		</profile>
-		<profile>
-			<!-- @see http://www.yegor256.com/2014/07/20/liquibase-in-maven.html -->
-			<id>with-liquibase</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/liquibase/master.xml</exists>
-				</file>
-				 <property><name>liquibase.url</name></property>
+        <!-- Checker Framework -->
+        <!-- These properties will be set by the Maven Dependency plugin -->
+        <!-- Change to jdk7 if using Java 7 -->
+        <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
+        <!-- The type annotations compiler is required if using Java 7. -->
+        <!-- Uncomment the following line if using Java 7. -->
+        <!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->
+
+        <!-- version block -->
+        <android.version>2.8.4</android.version>
+        <autovalue.version>1.2</autovalue.version> <!-- 2016-07-07 -->
+        <antlr3.version>3.5.2</antlr3.version>    <!-- 2015-10-06 -->
+        <antlr4.version>4.5.1-1</antlr4.version>    <!-- 2015-10-06 -->
+        <antrun.version>1.7</antrun.version>
+        <avro.version>1.7.7</avro.version>
+        <codequality.version>1.0.9</codequality.version>
+        <checkers.version>1.9.11</checkers.version>    <!-- 2016-02-18 -->
+        <docker.version>0.4.1</docker.version>
+        <duplicate.version>1.2.1</duplicate.version> <!-- 2015-10-06 -->
+        <spring-boot.version>1.3.1.RELEASE</spring-boot.version>
+        <checkstyle.version>2.17</checkstyle.version>    <!-- 2015-10-06 -->
+        <checkstylepuppycrawl.version>6.11.2</checkstylepuppycrawl.version>    <!-- 2015-10-06 -->
+        <commonslang.version>2.6</commonslang.version>
+        <commonslang3.version>3.2.1</commonslang3.version>
+        <compiler.version>3.5.1</compiler.version> <!-- as of 2016-01-09 -->
+        <concurrentrepo.version>0.11.2</concurrentrepo.version>    <!-- 2015-08-18 -->
+        <contract.version>0.0.1</contract.version>    <!-- 2016-04-21 -->
+        <coreext.version>0.20</coreext.version> <!-- as of 2016-04-02 -->
+        <dependency.version>2.8</dependency.version>
+        <dependencycheck.version>1.3.5.1</dependencycheck.version> <!-- as of 2015-08-28 -->
+        <doclava.version>1.0.6</doclava.version>
+        <eclipse.version>2.9</eclipse.version>
+        <enforcer.version>1.4.1</enforcer.version> <!-- 2015-09-01 -->
+        <enforcerextra.version>1.0-beta-4-SNAPSHOT</enforcerextra.version> <!-- 2015-10-06 -->
+        <equalsverifier.version>1.3.1</equalsverifier.version>
+        <errorprone.version>2.0.1</errorprone.version> <!-- as of 2015-03-27 -->
+        <findbugs.version>3.0.3</findbugs.version>    <!-- 2016-02-18 -->
+        <findbugs-extra.version>1.3.9</findbugs-extra.version>
+        <freebuilder.version>1.0-rc8</freebuilder.version> <!-- as of 2015-06-13 -->
+        <gdlogger.version>1.2.2</gdlogger.version>    <!-- 2016-07-04 -->
+        <gpg.version>1.5</gpg.version>
+        <guage-java.version>0.2.2</guage-java.version>    <!-- 2016-04-09 -->
+        <guage-maven-plugin.version>1.0.3</guage-maven-plugin.version>    <!-- 2016-04-09 -->
+        <guava.version>18.0</guava.version> <!-- as of 2014-03-11 -->
+        <kotlin.version>1.0.2</kotlin.version>    <!-- 2016-05-30 -->
+        <j2objc.version>1.1.2</j2objc.version>    <!-- 2016-05-25 -->
+        <jackson1.version>1.9.13</jackson1.version>
+        <jacoco.version>0.7.6.201602180812</jacoco.version>    <!-- 2016-02-21 -->
+        <jalopy.version>1.0-alpha-1</jalopy.version>
+        <javadoc.version>2.10.3</javadoc.version>
+        <javancss.version>2.1</javancss.version>    <!-- 2015-10-06 -->
+        <jdbcasync.version>0.2.18</jdbcasync.version>    <!-- 2015-10-07 -->
+        <jdepend.version>2.0</jdepend.version>    <!-- 2015-10-06 -->
+        <jmeter.version>2.0.1</jmeter.version>    <!-- 2016-07-05 -->
+        <jqassistant.version>1.1.3</jqassistant.version>    <!-- 2016-07-20 -->
+        <!-- as of 2014-03-11 -->
+        <license.version>1.9</license.version>    <!-- 2016-05-29 -->
+        <licenseVerifier.version>0.4</licenseVerifier.version>
+        <licenses.version>1.0</licenses.version>
+        <log4jslf4j.version>2.4</log4jslf4j.version>    <!-- 2015-10-06 -->
+        <log4jcore.version>2.4</log4jcore.version>    <!-- 2015-10-06 -->
+        <logback.version>1.0.13</logback.version>
+        <logback-jackson.version>0.1.2</logback-jackson.version>
+        <logstash.version>4.7</logstash.version>    <!-- 2016-07-07 -->
+        <lombok.version>1.12.5</lombok.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>    <!-- 2014-08-27 -->
+        <maven-project-info-reports-plugin.version>2.9
+        </maven-project-info-reports-plugin.version>    <!-- 2016-06-27 -->
+        <mockito.version>1.9.5</mockito.version>
+        <modernizer.version>1.4.0</modernizer.version> <!-- 2015-10-06 -->
+        <newrelic.version>3.21.0</newrelic.version>    <!-- 2015-10-06 -->
+        <nexusclm.version>2.4.1</nexusclm.version>    <!-- 2015-10-22 -->
+        <pitest.version>1.1.6</pitest.version> <!-- 2015-09-29 -->
+        <plexusCompiler.version>2.5</plexusCompiler.version> <!-- 2015-03-27 -->
+        <plexusCompilerErrorProne.version>2.5</plexusCompilerErrorProne.version> <!-- 2015-03-27 -->
+        <pmd.version>3.6</pmd.version>    <!-- 2016-02-18 -->
+        <pojomatic.version>1.0</pojomatic.version>
+        <profiledep.version>0.23-rc1</profiledep.version>    <!-- 2016-07-05 -->
+        <proguard.version>2.0.6</proguard.version>
+        <proguardBase.version>4.9</proguardBase.version>
+        <pure4j.version>0.3.1</pure4j.version>    <!-- 2015-12-03 -->
+        <restassured.version>2.5.0</restassured.version> <!-- 2015-08-27 -->
+        <scientist4j.version>0.1</scientist4j.version>    <!-- 2016-02-24 -->
+        <site.version>3.5</site.version>    <!-- 2016-02-19 -->
+        <slf4j.version>1.7.5</slf4j.version>
+        <smartbuilder.version>0.4.1</smartbuilder.version>    <!-- 2015-06-10 -->
+        <sonar.version>2.3</sonar.version> <!-- 2015-09-29 -->
+        <!-- as of 2012-09-17 -->
+        <source.version>3.0.1</source.version>    <!-- 2016-06-24 -->
+        <!-- as of 2014-03-11 -->
+        <surefire.version>2.16</surefire.version>
+        <!-- as of 2011-04-06 -->
+        <testng.version>6.8.7</testng.version>
+        <threeten-extra.version>0.9</threeten-extra.version>    <!-- 2016-05-23 -->
+        <togglz.version>2.3.0.RC1</togglz.version>    <!-- 2016-05-17 -->
+        <versioneye.version>3.1.0</versioneye.version>    <!-- 2016-06-28 -->
+        <versions.version>2.1</versions.version> <!-- 2015-12-29 -->
+        <wrapper.version>0.1.4</wrapper.version> <!-- 2015-09-14 -->
+        <zeroallochash.version>0.4</zeroallochash.version> <!-- 2015-09-12 -->
+        <ztexec.version>1.8</ztexec.version>
+        <docker.registry.url>https://index.docker.io/v1/</docker.registry.url>
+        <springboot.is.executable>true</springboot.is.executable>
+        <checker-version>1.8.2</checker-version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>signed-release</id>
+            <activation>
+                <property>
+                    <name>gpg.passphrase</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${gpg.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>doclava</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/java</exists>
+                </file>
+            </activation>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <bootclasspath>${sun.boot.class.path}</bootclasspath>
+                            <doclet>com.google.doclava.Doclava</doclet>
+                            <useStandardDocletOptions>false</useStandardDocletOptions>
+                            <docletArtifact>
+                                <groupId>com.google.doclava</groupId>
+                                <artifactId>doclava</artifactId>
+                                <version>${doclava.version}</version>
+                            </docletArtifact>
+                            <additionalparam>
+                                -hdf project.name "${project.name}"
+                                -d ${project.build.directory}/apidocs
+                                -quiet
+                            </additionalparam>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+        <profile>
+            <!-- @see http://www.yegor256.com/2014/07/20/liquibase-in-maven.html -->
+            <id>with-liquibase</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/liquibase/master.xml</exists>
+                </file>
+                <property>
+                    <name>liquibase.url</name>
+                </property>
                 <!-- following should be dependent on enviornment in settings.xml -->
                 <!--<property><name>liquibase.driver</name></property>-->
-                
+
                 <!-- following should be only in settings.xml and not committed -->
                 <!--<property><name>liquibase.username</name></property>-->
                 <!--<property><name>liquibase.password</name></property>-->
-        	</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.liquibase</groupId>
-						<artifactId>liquibase-maven-plugin</artifactId>
-						<configuration>
-							<changeLogFile>${basedir}/src/main/liquibase/master.xml</changeLogFile>
-							<driver>${liquibase.driver}</driver>
-							<url>${liquibase.driver}</url>
-							<username>${liquibase.driver}</username>
-							<password>${liquibase.driver}</password>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>scala-lang</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/scala</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.scala-lang</groupId>
-					<artifactId>scala-library</artifactId>
-					<version>2.7.2-rc2</version>
-				</dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.scala-tools</groupId>
-						<artifactId>maven-scala-plugin</artifactId>
-						<executions>
-							<execution>
-								<goals>
-									<goal>compile</goal>
-									<goal>testCompile</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<sourceDir>src/main/scala</sourceDir>
-							<jvmArg>-Xms64m</jvmArg>
-							<jvmArg>-Xmx1024m</jvmArg>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>clojure-lang</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/clojure</exists>
-				</file>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.theoryinpractise</groupId>
-						<artifactId>clojure-maven-plugin</artifactId>
-						<version>${clojure.version}</version>
-						<configuration>
-							<warnOnReflection>true</warnOnReflection>
-						</configuration>
-						<executions>
-							<execution>
-								<id>clojure-lang</id>
-								<goals>
-									<goal>add-source</goal>
-									<goal>add-test-source</goal>
-									<goal>compile</goal>
-									<goal>test</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>groovy-lang</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/groovy</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.codehaus.groovy</groupId>
-					<artifactId>groovy-all</artifactId>
-					<version>${groovy.version}</version>
-				</dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.gmavenplus</groupId>
-						<artifactId>gmavenplus-plugin</artifactId>
-						<version>${gmavenplus.version}</version>
-						<configuration>
-							<verbose>true</verbose>
-							<stacktrace>true</stacktrace>
-							<providerSelection>2.0</providerSelection>
-							<sourceEncoding>UTF-8</sourceEncoding>
-						</configuration>
-						<executions>
-							<execution>
-								<id>groovy-lang</id>
-								<goals>
-									<goal>generateStubs</goal>
-									<goal>compile</goal>
-									<goal>generateTestStubs</goal>
-									<goal>testCompile</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>nexusclm</id>
-			<activation>
-				<!-- You need entries in settings.xml to configure the link to the server, see readme -->
-				<property><name>nexusclm.applicationId</name></property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.sonatype.clm</groupId>
-						<artifactId>clm-maven-plugin</artifactId>
-						<version>${nexusclm.version}</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>evaluate</goal>
-								</goals>
-								<phase>site</phase>
-								<configuration>
-									<serverUrl>${nexusclm.serverUrl}</serverUrl>
-									<stage>build</stage>
-									<applicationId>${nexusclm.applicationId}</applicationId>
-									<inherited>false</inherited>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>versioneye</id>
-			<activation>
-				<!-- You need entries in settings.xml to configure the link to the server, see readme -->
-				<property><name>versioneye.apikey</name></property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.versioneye</groupId>
-						<artifactId>versioneye-maven-plugin</artifactId>
-						<version>${versioneye.version}</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>update</goal>
-								</goals>
-								<phase>site</phase>
-								<configuration>
-									<organisation>${versioneye.organisation}</organisation>
-									<team>${versioneye.team}</team>
-									<baseUrl>${versioneye.baseUrl}</baseUrl>
-									<visibility>${versioneye.visibility}</visibility>
-									<nameStrategy>${versioneye.nameStrategy}</nameStrategy>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>sonar</id>
-			<activation>
-				<!-- You need entries in settings.xml to configure the link to the server, see readme -->
-				<property><name>sonar.jdbc.url</name></property>
-				<!--<property><name>sonar.jdbc.username</name></property>
-				<property><name>sonar.jdbc.password</name></property>
-				<property><name>sonar.host.url</name></property>-->
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>sonar-maven-plugin</artifactId>
-						<version>${sonar.version}</version>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>avro-serializer</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/avro</exists>
-				</file>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.avro</groupId>
-						<artifactId>avro-maven-plugin</artifactId>
-						<version>${avro.version}</version>
-						<executions>
-							<execution>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>schema</goal>
-								</goals>
-								<configuration>
-									<sourceDirectory>
-										${project.basedir}/src/main/avro
-									</sourceDirectory>
-									<outputDirectory>
-										${project.build.directory}/generated-sources/avro
-									</outputDirectory>
-									<testSourceDirectory>
-										${project.basedir}/src/test/avro
-									</testSourceDirectory>
-									<testOutputDirectory>
-										${project.build.directory}/generated-test-sources/avro
-									</testOutputDirectory>
-									<fieldVisibility>
-										PRIVATE
-									</fieldVisibility>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>antlr3-gen</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/antlr3</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.antlr</groupId>
-					<artifactId>antlr-runtime</artifactId>
-					<version>${antlr3.version}</version>
-				</dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.antlr</groupId>
-						<artifactId>antlr3-maven-plugin</artifactId>
-						<version>${antlr3.version}</version>
-						<executions>
-							<execution>
-								<id>antl3-gen</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>antlr</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>antlr4-gen</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/antlr4</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.antlr</groupId>
-					<artifactId>antlr4-runtime</artifactId>
-					<version>${antlr4.version}</version>
-				</dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.antlr</groupId>
-						<artifactId>antlr4-maven-plugin</artifactId>
-						<version>${antlr4.version}</version>
-						<executions>
-							<execution>
-								<id>antl4-gen</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>antlr4</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<sourceDirectory>src/main/antlr4</sourceDirectory>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <configuration>
+                            <changeLogFile>${basedir}/src/main/liquibase/master.xml</changeLogFile>
+                            <driver>${liquibase.driver}</driver>
+                            <url>${liquibase.driver}</url>
+                            <username>${liquibase.driver}</username>
+                            <password>${liquibase.driver}</password>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>scala-lang</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/scala</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-library</artifactId>
+                    <version>2.7.2-rc2</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.scala-tools</groupId>
+                        <artifactId>maven-scala-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>compile</goal>
+                                    <goal>testCompile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <sourceDir>src/main/scala</sourceDir>
+                            <jvmArg>-Xms64m</jvmArg>
+                            <jvmArg>-Xmx1024m</jvmArg>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>clojure-lang</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/clojure</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.theoryinpractise</groupId>
+                        <artifactId>clojure-maven-plugin</artifactId>
+                        <version>${clojure.version}</version>
+                        <configuration>
+                            <warnOnReflection>true</warnOnReflection>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>clojure-lang</id>
+                                <goals>
+                                    <goal>add-source</goal>
+                                    <goal>add-test-source</goal>
+                                    <goal>compile</goal>
+                                    <goal>test</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>groovy-lang</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/groovy</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.codehaus.groovy</groupId>
+                    <artifactId>groovy-all</artifactId>
+                    <version>${groovy.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.gmavenplus</groupId>
+                        <artifactId>gmavenplus-plugin</artifactId>
+                        <version>${gmavenplus.version}</version>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <stacktrace>true</stacktrace>
+                            <providerSelection>2.0</providerSelection>
+                            <sourceEncoding>UTF-8</sourceEncoding>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>groovy-lang</id>
+                                <goals>
+                                    <goal>generateStubs</goal>
+                                    <goal>compile</goal>
+                                    <goal>generateTestStubs</goal>
+                                    <goal>testCompile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>nexusclm</id>
+            <activation>
+                <!-- You need entries in settings.xml to configure the link to the server, see readme -->
+                <property>
+                    <name>nexusclm.applicationId</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.sonatype.clm</groupId>
+                        <artifactId>clm-maven-plugin</artifactId>
+                        <version>${nexusclm.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>evaluate</goal>
+                                </goals>
+                                <phase>site</phase>
+                                <configuration>
+                                    <serverUrl>${nexusclm.serverUrl}</serverUrl>
+                                    <stage>build</stage>
+                                    <applicationId>${nexusclm.applicationId}</applicationId>
+                                    <inherited>false</inherited>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>versioneye</id>
+            <activation>
+                <!-- You need entries in settings.xml to configure the link to the server, see readme -->
+                <property>
+                    <name>versioneye.apikey</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.versioneye</groupId>
+                        <artifactId>versioneye-maven-plugin</artifactId>
+                        <version>${versioneye.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                                <phase>site</phase>
+                                <configuration>
+                                    <organisation>${versioneye.organisation}</organisation>
+                                    <team>${versioneye.team}</team>
+                                    <baseUrl>${versioneye.baseUrl}</baseUrl>
+                                    <visibility>${versioneye.visibility}</visibility>
+                                    <nameStrategy>${versioneye.nameStrategy}</nameStrategy>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <!-- You need entries in settings.xml to configure the link to the server, see readme -->
+                <property>
+                    <name>sonar.jdbc.url</name>
+                </property>
+                <!--<property><name>sonar.jdbc.username</name></property>
+                <property><name>sonar.jdbc.password</name></property>
+                <property><name>sonar.host.url</name></property>-->
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <version>${sonar.version}</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>avro-serializer</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/avro</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.avro</groupId>
+                        <artifactId>avro-maven-plugin</artifactId>
+                        <version>${avro.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>schema</goal>
+                                </goals>
+                                <configuration>
+                                    <sourceDirectory>
+                                        ${project.basedir}/src/main/avro
+                                    </sourceDirectory>
+                                    <outputDirectory>
+                                        ${project.build.directory}/generated-sources/avro
+                                    </outputDirectory>
+                                    <testSourceDirectory>
+                                        ${project.basedir}/src/test/avro
+                                    </testSourceDirectory>
+                                    <testOutputDirectory>
+                                        ${project.build.directory}/generated-test-sources/avro
+                                    </testOutputDirectory>
+                                    <fieldVisibility>
+                                        PRIVATE
+                                    </fieldVisibility>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>antlr3-gen</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/antlr3</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.antlr</groupId>
+                    <artifactId>antlr-runtime</artifactId>
+                    <version>${antlr3.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.antlr</groupId>
+                        <artifactId>antlr3-maven-plugin</artifactId>
+                        <version>${antlr3.version}</version>
+                        <executions>
+                            <execution>
+                                <id>antl3-gen</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>antlr</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>antlr4-gen</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/antlr4</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.antlr</groupId>
+                    <artifactId>antlr4-runtime</artifactId>
+                    <version>${antlr4.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.antlr</groupId>
+                        <artifactId>antlr4-maven-plugin</artifactId>
+                        <version>${antlr4.version}</version>
+                        <executions>
+                            <execution>
+                                <id>antl4-gen</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>antlr4</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <sourceDirectory>src/main/antlr4</sourceDirectory>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>OSXProfile</id>
             <activation>
@@ -2003,56 +1998,56 @@
             <id>docker</id>
             <build>
                 <plugins>
-<plugin>
-            <groupId>org.codehaus.groovy.maven</groupId>
-            <artifactId>gmaven-plugin</artifactId>
-            <version>1.0</version>
-            <executions>
-                <execution>
-                    <phase>initialize</phase>
-                    <goals>
-                        <goal>execute</goal>
-                  </goals>
-                   <configuration>
-                      <source>
-                      import org.apache.commons.lang.StringUtils
-
-                      project.properties["docker.image.verion"] = StringUtils.upperCase(project.properties["project.version"]) 
-                     </source>
-                 </configuration>
-             </execution>
-          </executions>
-     </plugin>
                     <plugin>
-                      <groupId>com.spotify</groupId>
-                      <artifactId>docker-maven-plugin</artifactId>
-                      <version>${docker.version}</version>
-                      <executions>
-                        <execution>
-                          <id>build-image</id>
-                          <phase>package</phase>
-                          <goals>
-                            <goal>build</goal>
-                          </goals>
-                        </execution>
-                        <execution>
-                          <id>tag-image</id>
-                          <phase>package</phase>
-                          <goals>
-                            <goal>tag</goal>
-                          </goals>
-                          
-                        </execution>
-                        <execution>
-                          <id>push-image</id>
-                          <phase>deploy</phase>
-                          <goals>
-                            <goal>push</goal>
-                          </goals>
-                          
-                        </execution>        
-                      </executions>
-                      <configuration>
+                        <groupId>org.codehaus.groovy.maven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <source>
+                                        import org.apache.commons.lang.StringUtils
+
+                                        project.properties["docker.image.verion"] = StringUtils.upperCase(project.properties["project.version"])
+                                    </source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${docker.version}</version>
+                        <executions>
+                            <execution>
+                                <id>build-image</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>tag-image</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>tag</goal>
+                                </goals>
+
+                            </execution>
+                            <execution>
+                                <id>push-image</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>push</goal>
+                                </goals>
+
+                            </execution>
+                        </executions>
+                        <configuration>
                             <imageName>${docker.image.prefix}/${project.artifactId}-${project.version}</imageName>
                             <dockerDirectory>src/main/docker</dockerDirectory>
                             <serverId>docker-hub</serverId>
@@ -2072,41 +2067,41 @@
                         </configuration>
                     </plugin>
 
-                    
+
                 </plugins>
             </build>
         </profile>
-		
-		<profile>
-			<id>log4j-slf4j-test</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/test/resources/log4j.xml</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-slf4j-impl</artifactId>
-					<version>${log4jslf4j.version}</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-core</artifactId>
-					<version>${log4jcore.version}</version>
-					<scope>test</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>pure4j-check</id>
+
+        <profile>
+            <id>log4j-slf4j-test</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/test/resources/log4j.xml</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <version>${log4jslf4j.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <version>${log4jcore.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>pure4j-check</id>
             <!-- Active this module require that all dependencies used in the project are in compile scope. To exclue testing dependencies in the final build, we will allow developer to opt out this profile -->
-			<!--<activation>
-				<file>
-					<exists>${basedir}/src/main/java</exists>
-				</file>
-			</activation>-->
+            <!--<activation>
+                <file>
+                    <exists>${basedir}/src/main/java</exists>
+                </file>
+            </activation>-->
             <dependencies>
                 <!-- pure4j plugin does not work with Test scope. most likely will need
                 to change spring test module to compile scope-->
@@ -2116,245 +2111,249 @@
                     <version>4.2.4.RELEASE</version>
                 </dependency>
             </dependencies>
-			<dependencyManagement>
-				<dependencies>
-					<dependency>
-						<groupId>org.pure4j</groupId>
-						<artifactId>pure4j-core</artifactId>
-						<version>${pure4j.version}</version>
-					</dependency>
-				</dependencies>
-			</dependencyManagement>
-			<build>
-				<plugins>
-					<plugin>
-						<!-- @see https://github.com/robmoffat/pure4j/blob/master/README.md -->
-						<groupId>org.pure4j</groupId>
-						<artifactId>pure4j-maven-plugin</artifactId>
-						<version>${pure4j.version}</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>pure4j</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>log4j-slf4j</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/resources/log4j.xml</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-slf4j-impl</artifactId>
-					<version>${log4jslf4j.version}</version>
-				</dependency>
-				<dependency>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-core</artifactId>
-					<version>${log4jcore.version}</version>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>guage-test-profile</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/test/specs</exists>
-				</file>
-			</activation>
-			<!--
-				 Guage spec based testing - BDD
-				 @see http://getgauge.io
-			-->
-			<dependencies>
-				<dependency>
-					<groupId>com.thoughtworks.gauge</groupId>
-					<artifactId>guage-maven-plugin</artifactId>
-					<version>${guage-maven-plugin.version}</version>
-					<scope>test</scope>
-				</dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.thoughtworks.gauge</groupId>
-						<artifactId>guage-java</artifactId>
-						<version>${guage-java.version}</version>
-						<executions>
-                            				<execution>
-								<id>integration-test</id>
-								<phase>test</phase>
-								<configuration>
-									<specsDir>specs</specsDir>
-								</configuration>
-								<goals>
-									<goal>execute</goal>
-								</goals>
-                            				</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>jmeter-test-profile</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/test/jmeter</exists>
-				</file>
-			</activation>
-			<!--
-				 REST Testing
-				 @see https://github.com/jmeter-maven-plugin/jmeter-maven-plugin
-			-->
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.lazerycode.jmeter</groupId>
-						<artifactId>jmeter-maven-plugin</artifactId>
-						<version>${jmeter.version}</version>
-						<executions>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pure4j</groupId>
+                        <artifactId>pure4j-core</artifactId>
+                        <version>${pure4j.version}</version>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- @see https://github.com/robmoffat/pure4j/blob/master/README.md -->
+                        <groupId>org.pure4j</groupId>
+                        <artifactId>pure4j-maven-plugin</artifactId>
+                        <version>${pure4j.version}</version>
+                        <executions>
                             <execution>
-							<id>integration-test</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>jmeter</goal>
-							</goals>
+                                <goals>
+                                    <goal>pure4j</goal>
+                                </goals>
                             </execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>newrelic-pkg</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/resources/newrelic.yml</exists>
-				</file>
-			</activation>
-			<!--
-				 Commercial monitoring
-				 @see https://docs.newrelic.com/docs/agents/java-agent/installation/java-agent-manual-installation
-				 @see https://docs.newrelic.com/docs/agents/java-agent/frameworks/maven-installation-java
-			-->
-			<dependencies>
-				<dependency>
-					<!-- Needs to add JVM command line argument
-						 -javaagent:/path/to/newrelic.jar
-					-->
-					<groupId>com.newrelic.agent.java</groupId>
-					<artifactId>newrelic-agent</artifactId>
-					<version>${newrelic.version}</version>
-					<scope>provided</scope>
-				</dependency>
-				<dependency>
-					<groupId>com.newrelic.agent.java</groupId>
-					<artifactId>newrelic-api</artifactId>
-					<version>${newrelic.version}</version>
-					<scope>provided</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<!-- Generate ObjectiveC cocde from java -->
-			<!-- @see https://github.com/smoope/j2objc-maven-plugin#maven-plugin-for-j2objc-library -->
-			<id>j2objc</id>
-			<activation>
-				<file>
-					<exists>${basedir}/bin/j2objc</exists>
-				</file>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.smoope.utils</groupId>
-						<artifactId>j2objc-maven-plugin</artifactId>
-						<version>${j2objc.version}</version>
-						<configuration>
-							<j2objcPath>${basedir}/bin/j2objc</j2objcPath>
-							<useArc>true</useArc>
-							<noPackageDirectories>true</noPackageDirectories>
-							<sourcePath>${project.basedir}/src/main/java</sourcePath>
-							<d>${project.build.directory}/j2objc</d>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<!-- @see http://kotlinlang.org/docs/reference/using-maven.html -->
-			<id>kotlin</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/main/kotlin</exists>
-				</file>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.jetbrains.kotlin</groupId>
-					<artifactId>kotlin-stdlib</artifactId>
-					<version>${kotlin.version}</version>
-				</dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>kotlin-maven-plugin</artifactId>
-						<groupId>org.jetbrains.kotlin</groupId>
-						<version>${kotlin.version}</version>
-						<executions>
-							<execution>
-								<id>compile</id>
-								<phase>process-sources</phase>
-								<goals> <goal>compile</goal> </goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<!-- @see http://kotlinlang.org/docs/reference/using-maven.html -->
-			<id>kotlin-test</id>
-			<activation>
-				<file>
-					<exists>${basedir}/src/test/kotlin</exists>
-				</file>
-			</activation>
-			<dependencies>
-			    <dependency>
-			        <groupId>org.jetbrains.kotlin</groupId>
-			        <artifactId>kotlin-stdlib</artifactId>
-			        <version>${kotlin.version}</version>
-			    </dependency>
-			</dependencies>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>kotlin-maven-plugin</artifactId>
-						<groupId>org.jetbrains.kotlin</groupId>
-						<version>${kotlin.version}</version>
-						<executions>
-							<execution>
-								<id>test-compile</id>
-								<phase>process-test-sources</phase>
-								<goals> <goal>test-compile</goal> </goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>log4j-slf4j</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/resources/log4j.xml</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <version>${log4jslf4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <version>${log4jcore.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>guage-test-profile</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/test/specs</exists>
+                </file>
+            </activation>
+            <!--
+                 Guage spec based testing - BDD
+                 @see http://getgauge.io
+            -->
+            <dependencies>
+                <dependency>
+                    <groupId>com.thoughtworks.gauge</groupId>
+                    <artifactId>guage-maven-plugin</artifactId>
+                    <version>${guage-maven-plugin.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.thoughtworks.gauge</groupId>
+                        <artifactId>guage-java</artifactId>
+                        <version>${guage-java.version}</version>
+                        <executions>
+                            <execution>
+                                <id>integration-test</id>
+                                <phase>test</phase>
+                                <configuration>
+                                    <specsDir>specs</specsDir>
+                                </configuration>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jmeter-test-profile</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/test/jmeter</exists>
+                </file>
+            </activation>
+            <!--
+                 REST Testing
+                 @see https://github.com/jmeter-maven-plugin/jmeter-maven-plugin
+            -->
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+                        <version>${jmeter.version}</version>
+                        <executions>
+                            <execution>
+                                <id>integration-test</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>jmeter</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>newrelic-pkg</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/resources/newrelic.yml</exists>
+                </file>
+            </activation>
+            <!--
+                 Commercial monitoring
+                 @see https://docs.newrelic.com/docs/agents/java-agent/installation/java-agent-manual-installation
+                 @see https://docs.newrelic.com/docs/agents/java-agent/frameworks/maven-installation-java
+            -->
+            <dependencies>
+                <dependency>
+                    <!-- Needs to add JVM command line argument
+                         -javaagent:/path/to/newrelic.jar
+                    -->
+                    <groupId>com.newrelic.agent.java</groupId>
+                    <artifactId>newrelic-agent</artifactId>
+                    <version>${newrelic.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.newrelic.agent.java</groupId>
+                    <artifactId>newrelic-api</artifactId>
+                    <version>${newrelic.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <!-- Generate ObjectiveC cocde from java -->
+            <!-- @see https://github.com/smoope/j2objc-maven-plugin#maven-plugin-for-j2objc-library -->
+            <id>j2objc</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/bin/j2objc</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.smoope.utils</groupId>
+                        <artifactId>j2objc-maven-plugin</artifactId>
+                        <version>${j2objc.version}</version>
+                        <configuration>
+                            <j2objcPath>${basedir}/bin/j2objc</j2objcPath>
+                            <useArc>true</useArc>
+                            <noPackageDirectories>true</noPackageDirectories>
+                            <sourcePath>${project.basedir}/src/main/java</sourcePath>
+                            <d>${project.build.directory}/j2objc</d>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!-- @see http://kotlinlang.org/docs/reference/using-maven.html -->
+            <id>kotlin</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/main/kotlin</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-stdlib</artifactId>
+                    <version>${kotlin.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>kotlin-maven-plugin</artifactId>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <version>${kotlin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>compile</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!-- @see http://kotlinlang.org/docs/reference/using-maven.html -->
+            <id>kotlin-test</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/src/test/kotlin</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-stdlib</artifactId>
+                    <version>${kotlin.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>kotlin-maven-plugin</artifactId>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <version>${kotlin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>test-compile</id>
+                                <phase>process-test-sources</phase>
+                                <goals>
+                                    <goal>test-compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->
 </project>

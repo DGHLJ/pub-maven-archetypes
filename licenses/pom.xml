@@ -8,7 +8,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <description>Automatically validate licenses in the dependencies</description>
-    <name>Licenses Config File</name>
+    <name>Licenses Validation</name>
     <url>none</url>
     <licenses>
         <license>

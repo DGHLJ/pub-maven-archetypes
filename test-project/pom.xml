@@ -10,7 +10,7 @@
     </parent>
     <artifactId>test-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>test-project</name>
+    <name>Test Project for Parent POM</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
