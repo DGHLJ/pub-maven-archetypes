@@ -1,89 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.levonk</groupId>
-	<artifactId>maven-codequalities-parent</artifactId>
-	<packaging>pom</packaging>
-	<version>1.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.levonk</groupId>
+    <artifactId>maven-codequalities-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
 
     <licenses>
-    <license>
-    <name>Apache License, Version 2.0</name>
-    <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    <distribution>repo</distribution>
-    <comments>A business-friendly OSS license</comments>
-    </license>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
     </licenses>
 
+    <organization>
+        <name>Levon K</name>
+        <url>none</url>
+    </organization>
 
- 	<organization>
-	<name>Levon K</name>
-	<url>none</url>
-	</organization>
+    <developers>
+        <developer>
+            <id>levonk</id>
+            <name>Levon K</name>
+            <email>none</email>
+            <url>none</url>
+        </developer>
 
-	 <developers>
-	 <developer>
-	<id>levonk</id>
-	<name>Levon K</name>
-	<email>none</email>
-	<url>none</url>
-	</developer>
-	
+        <developer>
+            <id>jwang</id>
+            <name>Jing Wang</name>
+            <email>none</email>
+            <url>none</url>
+        </developer>
+    </developers>
 
-	<developer>
-	<id>jwang</id>
-	<name>Jing Wang</name>
-	<email>none</email>
-	<url>none</url>
-	</developer>
-	</developers>
-
- <scm>
-<connection>scm:git:https://github.com/DGHLJ/pub-maven-archetypes.git</connection>
-<developerConnection>scm:git:git://github.com/DGHLJ/pub-maven-archetypes.git</developerConnection>
-<tag>HEAD</tag>
-<url>https://github.com/DGHLJ/pub-maven-archetypes</url>
-</scm>
+    <scm>
+        <connection>scm:git:https://github.com/DGHLJ/pub-maven-archetypes.git</connection>
+        <developerConnection>scm:git:git://github.com/DGHLJ/pub-maven-archetypes.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/DGHLJ/pub-maven-archetypes</url>
+    </scm>
 
     <distributionManagement>
-    <snapshotRepository>
-    <id>oss.sonatype.org</id>
-    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-   <repository>
-    <id>oss.sonatype.org</id>
-    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
+        <snapshotRepository>
+            <id>oss.sonatype.org</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss.sonatype.org</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
+    
+    <modules>
+        <module>licenses</module>
+        <module>codequality</module>
+        <module>parent-poms</module>
+        <module>test-project</module>
+    </modules>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<modules>
-		<module>licenses</module>
-		<module>codequality</module>
-		<module>parent-poms</module>
-    <module>test-project</module>
-  </modules>
+    <repositories>
+    </repositories>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <pluginRepositories>
+    </pluginRepositories>
 
-	<repositories>
-	</repositories>
+    <dependencies>
+    </dependencies>
 
-	<pluginRepositories>
-	</pluginRepositories>
-
-	<dependencies>
-	</dependencies>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-		</plugins>
-	</build>
+    <build>
+        <pluginManagement>
+            <plugins>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+        </plugins>
+    </build>
 </project>
