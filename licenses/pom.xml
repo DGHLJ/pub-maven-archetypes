@@ -1,114 +1,107 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.levonk.codequality</groupId>
-	<artifactId>licenses</artifactId>
-	<version>1.0</version>
-	<packaging>jar</packaging>
-        <description>Automatically validate licenses in the dependencies.</description>
-	<name>Licenses Config File</name>
-	 <url>none</url>
-	<licenses>
-    <license>
-    <name>Apache License, Version 2.0</name>
-    <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    <distribution>repo</distribution>
-    <comments>A business-friendly OSS license</comments>
-    </license>
+    <groupId>com.levonk.codequality</groupId>
+    <artifactId>licenses</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <description>Automatically validate licenses in the dependencies</description>
+    <name>Licenses Config File</name>
+    <url>none</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
     </licenses>
 
-
     <organization>
-    <name>Levon K</name>
-    <url>none</url>
+        <name>Levon K</name>
+        <url>none</url>
     </organization>
 
-     <developers>
-     <developer>
-    <id>levonk</id>
-    <name>Levon K</name>
-    <email>none</email>
-    <url>none</url>
-    </developer>
-    
+    <developers>
+        <developer>
+            <id>levonk</id>
+            <name>Levon K</name>
+            <email>none</email>
+            <url>none</url>
+        </developer>
 
-    <developer>
-    <id>jwang</id>
-    <name>Jing Wang</name>
-    <email>none</email>
-    <url>none</url>
-    </developer>
+        <developer>
+            <id>jwang</id>
+            <name>Jing Wang</name>
+            <email>none</email>
+            <url>none</url>
+        </developer>
     </developers>
 
- <scm>
-<connection>scm:git:https://github.com/DGHLJ/pub-maven-archetypes.git</connection>
-<developerConnection>scm:git:git://github.com/DGHLJ/pub-maven-archetypes.git</developerConnection>
-<tag>HEAD</tag>
-<url>https://github.com/DGHLJ/pub-maven-archetypes</url>
-</scm>
+    <scm>
+        <connection>scm:git:https://github.com/DGHLJ/pub-maven-archetypes.git</connection>
+        <developerConnection>scm:git:git://github.com/DGHLJ/pub-maven-archetypes.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/DGHLJ/pub-maven-archetypes</url>
+    </scm>
 
     <distributionManagement>
-    <snapshotRepository>
-    <id>oss.sonatype.org</id>
-    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-   <repository>
-    <id>oss.sonatype.org</id>
-    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
+        <snapshotRepository>
+            <id>oss.sonatype.org</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss.sonatype.org</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
+    <properties>
+        <resources.version>2.3</resources.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gpg.version>1.5</gpg.version>
+    </properties>
 
-
-
-
-	<properties>
-		<resources.version>2.3</resources.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-			<gpg.version>1.5</gpg.version>
-
-	</properties>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>${resources.version}</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<profiles>
-		<profile>
-			<id>signed-release</id>
-			<activation>
-				<property>
-					<name>gpg.passphrase</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>${gpg.version}</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${resources.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>signed-release</id>
+            <activation>
+                <property>
+                    <name>gpg.passphrase</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${gpg.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

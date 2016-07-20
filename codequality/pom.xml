@@ -1,215 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
-		xmlns="http://maven.apache.org/POM/4.0.0"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	
-        <groupId>com.levonk</groupId>
-	<artifactId>codequality</artifactId>
-	<version>1.0.0</version>
-	<name>Code Quality Tools</name>
-	<description>A set of static code analysis rules</description>
-	<modelVersion>4.0.0</modelVersion>
-	<packaging>pom</packaging>
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+    <groupId>com.levonk</groupId>
+    <artifactId>codequality</artifactId>
+    <version>1.0.0</version>
+    <name>Code Quality Tools</name>
+    <description>A set of static code analysis rules</description>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
- <url>none</url>
-	<licenses>
-    <license>
-    <name>Apache License, Version 2.0</name>
-    <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    <distribution>repo</distribution>
-    <comments>A business-friendly OSS license</comments>
-    </license>
+    <url>none</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
     </licenses>
 
-
     <organization>
-    <name>Levon K</name>
-    <url>none</url>
+        <name>Levon K</name>
+        <url>none</url>
     </organization>
 
-     <developers>
-     <developer>
-    <id>levonk</id>
-    <name>Levon K</name>
-    <email>none</email>
-    <url>none</url>
-    </developer>
-    
+    <developers>
+        <developer>
+            <id>levonk</id>
+            <name>Levon K</name>
+            <email>none</email>
+            <url>none</url>
+        </developer>
 
-    <developer>
-    <id>jwang</id>
-    <name>Jing Wang</name>
-    <email>none</email>
-    <url>none</url>
-    </developer>
+        <developer>
+            <id>jwang</id>
+            <name>Jing Wang</name>
+            <email>none</email>
+            <url>none</url>
+        </developer>
     </developers>
 
- <scm>
-<connection>scm:git:https://github.com/DGHLJ/pub-maven-archetypes.git</connection>
-<developerConnection>scm:git:git://github.com/DGHLJ/pub-maven-archetypes.git</developerConnection>
-<tag>HEAD</tag>
-<url>https://github.com/DGHLJ/pub-maven-archetypes</url>
-</scm>
+    <scm>
+        <connection>scm:git:https://github.com/DGHLJ/pub-maven-archetypes.git</connection>
+        <developerConnection>scm:git:git://github.com/DGHLJ/pub-maven-archetypes.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/DGHLJ/pub-maven-archetypes</url>
+    </scm>
 
     <distributionManagement>
-    <snapshotRepository>
-    <id>oss.sonatype.org</id>
-    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-   <repository>
-    <id>oss.sonatype.org</id>
-    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
+        <snapshotRepository>
+            <id>oss.sonatype.org</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss.sonatype.org</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
-<properties>
-			<gpg.version>1.5</gpg.version>
+    <properties>
+        <gpg.version>1.5</gpg.version>
+    </properties>
 
-	</properties>
+    <build>
+        <sourceDirectory>src/main/</sourceDirectory>
+        <plugins>
+            <plugin>
+                <!-- NOTE: We don't need a groupId specification because the group is
+                     org.apache.maven.plugins ...which is assumed by default.
+                 -->
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <formats>
+                        <format>dir</format>
+                    </formats>
+                    <descriptorRefs>
+                        <descriptorRef>src</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build-distros</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${gpg.version}</version>
 
-	<build>
-                <sourceDirectory>src/main/</sourceDirectory>
-		<plugins>
-			<plugin>
-		        <!-- NOTE: We don't need a groupId specification because the group is
-		             org.apache.maven.plugins ...which is assumed by default.
-		         -->
-		        <artifactId>maven-assembly-plugin</artifactId>
-		        <version>2.4</version>
-		        <configuration>
-		          <formats><format>dir</format></formats>
-		          <descriptorRefs>
-		            <descriptorRef>src</descriptorRef>
-		          </descriptorRefs>
-		        </configuration>
-		        <executions>
-				    <execution>
-				      <id>build-distros</id>
-				      <phase>package</phase>
-				      <goals>
-				        <goal>single</goal>
-				      </goals>
-				    </execution>
-				</executions>
-		    </plugin>
-      <plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>${gpg.version}</version>
-						
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-
-<plugin>   
-  <groupId>org.codehaus.mojo</groupId>   
-  <artifactId>build-helper-maven-plugin</artifactId>
-  <version>1.10</version>
-  <executions>
-    <execution>
-      <id>attach-artifacts</id>
-      <phase>package</phase>
-      <goals> 
-        <goal>attach-artifact</goal>
-      </goals> 
-      <configuration>
-        <artifacts> 
-          <artifact> 
-            <file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml</file>
-            <type>xml</type>
-            <classifier>checkstyle</classifier>
-          </artifact>
-          <artifact>
-            <file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml</file>   
-            <type>xml</type>
-            <classifier>FindBugsFilter</classifier>
-          </artifact>
-          <artifact>
-            <file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/pmd/pmd.xml</file>   
-            <type>xml</type>
-            <classifier>pmd</classifier>
-          </artifact>
-        </artifacts>
-      </configuration>
-    </execution>
-  </executions>
-</plugin>
-
-
-		   <!-- <plugin>
-    		<groupId>org.apache.maven.plugins</groupId>
-   			<artifactId>maven-deploy-plugin</artifactId>
-    		<version>2.6</version>
-    		<executions>
-				<execution>
-				    <id>build-checkstyle</id>
-				    <phase>deploy</phase>
-				    <goals>
-				    	<goal>deploy-file</goal>
-				    </goals>
-				    <configuration>
-				        <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
-				        <packaging>xml</packaging>
-				        <generatePom>true</generatePom>
-				        <url>${project.distributionManagement.repository.url}</url>
-				        <file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml</file>
-						<artifactId>checkstyle</artifactId>
-				        <groupId>${project.groupId}.${project.artifactId}</groupId>
-				        <version>${project.version}</version>
-				    </configuration>
-				</execution>
-				<execution>
-				    <id>build-findBug</id>
-				    <phase>deploy</phase>
-				    <goals>
-				    	<goal>deploy-file</goal>
-				    </goals>
-				    <configuration>
-				        <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
-				        <packaging>xml</packaging>
-				        <generatePom>true</generatePom>
-				        <url>${project.distributionManagement.repository.url}</url>
-				        <file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml</file>
-						<artifactId>FindBugFilter</artifactId>
-				        <groupId>${project.groupId}.${project.artifactId}</groupId>
-				        <version>${project.version}</version>
-				    </configuration>
-				</execution>
-				<execution>
-				    <id>build-pmd</id>
-				    <phase>deploy</phase>
-				    <goals>
-				    	<goal>deploy-file</goal>
-				    </goals>
-				    <configuration>
-				        <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
-				        <packaging>xml</packaging>
-				        <generatePom>true</generatePom>
-				        <url>${project.distributionManagement.repository.url}</url>
-				        <file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/pmd/pmd.xml</file>
-						<artifactId>pmd</artifactId>
-				        <groupId>${project.groupId}.${project.artifactId}</groupId>
-				        <version>${project.version}</version>
-				    </configuration>
-				</execution>
-			</executions>
-   
-    
-</plugin>
-
--->
-
-
-		</plugins>
-	</build>
-
-	<!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>
+                                        target/codequality-1.0.0-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml
+                                    </file>
+                                    <type>xml</type>
+                                    <classifier>checkstyle</classifier>
+                                </artifact>
+                                <artifact>
+                                    <file>
+                                        target/codequality-1.0.0-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml
+                                    </file>
+                                    <type>xml</type>
+                                    <classifier>FindBugsFilter</classifier>
+                                </artifact>
+                                <artifact>
+                                    <file>
+                                        target/codequality-1.0.0-src/codequality-${project.version}/src/main/pmd/pmd.xml
+                                    </file>
+                                    <type>xml</type>
+                                    <classifier>pmd</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                <!--<version>2.6</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>build-checkstyle</id>-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>deploy-file</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<repositoryId>${project.distributionManagement.repository.id}</repositoryId>-->
+                            <!--<packaging>xml</packaging>-->
+                            <!--<generatePom>true</generatePom>-->
+                            <!--<url>${project.distributionManagement.repository.url}</url>-->
+                            <!--<file>-->
+                                <!--target/codequality-1.0.0-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml-->
+                            <!--</file>-->
+                            <!--<artifactId>checkstyle</artifactId>-->
+                            <!--<groupId>${project.groupId}.${project.artifactId}</groupId>-->
+                            <!--<version>${project.version}</version>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>build-findBug</id>-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>deploy-file</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<repositoryId>${project.distributionManagement.repository.id}</repositoryId>-->
+                            <!--<packaging>xml</packaging>-->
+                            <!--<generatePom>true</generatePom>-->
+                            <!--<url>${project.distributionManagement.repository.url}</url>-->
+                            <!--<file>-->
+                                <!--target/codequality-1.0.0-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml-->
+                            <!--</file>-->
+                            <!--<artifactId>FindBugFilter</artifactId>-->
+                            <!--<groupId>${project.groupId}.${project.artifactId}</groupId>-->
+                            <!--<version>${project.version}</version>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>build-pmd</id>-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>deploy-file</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<repositoryId>${project.distributionManagement.repository.id}</repositoryId>-->
+                            <!--<packaging>xml</packaging>-->
+                            <!--<generatePom>true</generatePom>-->
+                            <!--<url>${project.distributionManagement.repository.url}</url>-->
+                            <!--<file>target/codequality-1.0.0-src/codequality-${project.version}/src/main/pmd/pmd.xml-->
+                            <!--</file>-->
+                            <!--<artifactId>pmd</artifactId>-->
+                            <!--<groupId>${project.groupId}.${project.artifactId}</groupId>-->
+                            <!--<version>${project.version}</version>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+    <!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->
 </project>
