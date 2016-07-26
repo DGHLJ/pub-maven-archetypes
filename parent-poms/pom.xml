@@ -874,7 +874,7 @@
                 <configuration>
                     <rulesets>
                         <ruleset>
-                            https://oss.sonatype.org/content/groups/public/com/levonk/codequality/1.0.0/codequality-1.0.0-pmd.xml
+                            https://oss.sonatype.org/content/groups/public/com/levonk/codequality/${project.version}/codequality-${project.version}-pmd.xml
                         </ruleset>
                     </rulesets>
                     <excludes>
@@ -908,7 +908,7 @@
                 <version>${findbugs.version}</version>
                 <configuration>
                     <excludeFilterFile>
-                        https://oss.sonatype.org/content/groups/public/com/levonk/codequality/1.0.0/codequality-1.0.0-FindBugsFilter.xml
+                        https://oss.sonatype.org/content/groups/public/com/levonk/codequality/${project.version}/codequality-${project.version}-FindBugsFilter.xml
                     </excludeFilterFile>
                     <effort>Max</effort>
                     <threshold>Low</threshold>

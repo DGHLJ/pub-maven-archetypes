@@ -121,21 +121,21 @@
                             <artifacts>
                                 <artifact>
                                     <file>
-                                        target/codequality-1.0.0-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml
+                                        target/codequality-${project.version}-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml
                                     </file>
                                     <type>xml</type>
                                     <classifier>checkstyle</classifier>
                                 </artifact>
                                 <artifact>
                                     <file>
-                                        target/codequality-1.0.0-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml
+                                        target/codequality-${project.version}-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml
                                     </file>
                                     <type>xml</type>
                                     <classifier>FindBugsFilter</classifier>
                                 </artifact>
                                 <artifact>
                                     <file>
-                                        target/codequality-1.0.0-src/codequality-${project.version}/src/main/pmd/pmd.xml
+                                        target/codequality-${project.version}-src/codequality-${project.version}/src/main/pmd/pmd.xml
                                     </file>
                                     <type>xml</type>
                                     <classifier>pmd</classifier>
