@@ -18,6 +18,10 @@
         </license>
     </licenses>
 
+    <prerequisites>
+        <maven>3.3.1</maven>
+    </prerequisites>
+
     <organization>
         <name>Levon K</name>
         <url>none</url>
