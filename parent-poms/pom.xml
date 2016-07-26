@@ -16,7 +16,7 @@
     <artifactId>pom</artifactId>
     <name>Parent POM</name>
     <url>none</url>
-    <version>1.3.5</version>
+    <version>1.3.6</version>
     <packaging>pom</packaging>
 
     <licenses>
@@ -955,7 +955,7 @@
                     <dependency>
                         <groupId>com.levonk.codequality</groupId>
                         <artifactId>licenses</artifactId>
-                        <version>${licenses.version}</version>
+                        <version>1.3.6</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -1195,20 +1195,41 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>install-coreext</id>
+                        <goals>
+                            <!--
+                            If we dont' meet the requirements of our enviornment then
+                            stop everything and complain.   Within Jenkins we should have
+                            a pipeline step that will make the enviornment what we expect to be.
+                            Something like:
+                            * mvn clean
+                            * mvn coreext:install
+                            * mvn compile
+                            * mvn test
+                            * mvn integration-test
+                            * mvn pitest:run
+                            * mvn package
+                            -->
+                            <goal>install</goal>
+                        </goals>
+                        <!--default phase is: -->
+                        <phase>post-clean</phase>
+                    </execution>
+                    <execution>
                         <id>check-coreext</id>
                         <goals>
                             <!--
-                                If we dont' meet the requirements of our enviornment then
-                                stop everything and complain.   Within Jenkins we should have
-                                a pipeline step that will make the enviornment what we expect to be.
-                                Something like:
-                                    * mvn clean
-                                    * mvn coreext:install
-                                    * mvn compile
-                                    * mvn test
-                                    * mvn integration-test
-                                    * mvn pitest:run
-                                    * mvn package
+                            If we dont' meet the requirements of our enviornment then
+                            stop everything and complain.   Within Jenkins we should have
+                            a pipeline step that will make the enviornment what we expect to be.
+                            Something like:
+                            * mvn clean
+                            * mvn coreext:install
+                            * mvn compile
+                            * mvn test
+                            * mvn integration-test
+                            * mvn pitest:run
+                            * mvn package
                             -->
                             <goal>check</goal>
                         </goals>

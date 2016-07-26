@@ -7,10 +7,10 @@
         <relativePath/>
         <groupId>com.levonk.codequality</groupId>
         <artifactId>pom</artifactId>
-        <version>1.3.4</version>
+        <version>1.3.6</version>
     </parent>
     <artifactId>test-project</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.3.6</version>
     <name>Test Project for Parent POM</name>
     <url>http://maven.apache.org</url>
     <properties>

@@ -7,7 +7,7 @@
     <artifactId>maven-codequalities-parent</artifactId>
     <packaging>pom</packaging>
     <name>Maven Archetypes</name>
-    <version>1.0</version>
+    <version>1.3.6</version>
 
     <licenses>
         <license>
