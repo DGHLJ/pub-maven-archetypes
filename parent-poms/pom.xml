@@ -16,7 +16,7 @@
     <artifactId>pom</artifactId>
     <name>Parent POM</name>
     <url>none</url>
-    <version>1.3.6</version>
+    <version>1.3.5</version>
     <packaging>pom</packaging>
 
     <licenses>
@@ -955,7 +955,7 @@
                     <dependency>
                         <groupId>com.levonk.codequality</groupId>
                         <artifactId>licenses</artifactId>
-                        <version>1.3.6</version>
+                        <version>1.3.5</version>
                     </dependency>
                 </dependencies>
             </plugin>
