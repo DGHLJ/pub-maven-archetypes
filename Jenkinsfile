@@ -84,8 +84,9 @@ node {
 
             stage 'Deploy to Nexus'
             sh "cd parent-poms"
-            sh" ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true"
-            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
+            sh "${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true"
+            sh "cd .."
+            sh "${mvnHome}/bin/mvn -s settings.xml -f parent-poms/pom.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
 
             stage 'Release Staged Repository'
             sh "output=\$( ${mvnHome}/bin/mvn -s settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ; echo \$output"
