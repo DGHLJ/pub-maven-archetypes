@@ -53,15 +53,6 @@ node {
                   popd;
                 done
 
-                #for i in \$(ls -d */); do
-                #    if [  -f \${i}/pom.xml ]; then
-                #       echo "cd \${i}";
-                #       cd \${i}
-                #       ( test -d .mvn && rm -rf .mvn ) || true
-                #       ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
-                #        cd ..
-                #    fi
-                #done
                 echo "######## END PER-DIR coreext-maven-plugin RE-INSTALLS ########";
                 
                 echo "######## BEGIN MULTI_MODULE coreext-maven-plugin RE-INSTALL ########";
@@ -85,15 +76,20 @@ node {
                 ${mvnHome}/bin/mvn -s settings.xml versions:set -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS
             """
             
-            // stage 'Compile'
-            // sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.multiModuleProjectDirectory=. compile"
-            
-            stage 'Clean/Install'
-            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg clean install -o"
-            
-            stage 'Deploy'
-            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy -o"
-            
+            stage 'Clean'
+            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg clean"
+
+            stage 'Install'
+            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg install"
+
+            stage 'Deploy to Nexus'
+            sh "cd parent-poms"
+            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
+
+            stage 'Release Staged Repository'
+            sh "output=\$( mvn nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\  -f2 ) ; echo \$output"
+            sh "mvn nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$output -e"
+
         }
         
         stage 'Publish Unit Test Reports'
