@@ -84,6 +84,7 @@ node {
 
             stage 'Deploy to Nexus'
             sh "cd parent-poms"
+            sh" ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true"
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
 
             stage 'Release Staged Repository'
