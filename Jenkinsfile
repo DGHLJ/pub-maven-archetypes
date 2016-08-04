@@ -87,7 +87,7 @@ node {
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
 
             stage 'Release Staged Repository'
-            sh "output=\$( mvn nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\  -f2 ) ; echo \$output"
+            sh "output=\$( mvn nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ; echo \$output"
             sh "mvn nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$output -e"
 
         }
