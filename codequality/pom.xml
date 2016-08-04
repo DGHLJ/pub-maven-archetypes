@@ -68,6 +68,18 @@
         <sourceDirectory>src/main/</sourceDirectory>
         <plugins>
             <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <skipStaging>true</skipStaging>
+                    <!-- The Base URL of Nexus instance where we want to stage -->
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <serverId>oss.sonatype.org</serverId>
+                </configuration>
+            </plugin>
+            <plugin>
                 <!-- NOTE: We don't need a groupId specification because the group is
                      org.apache.maven.plugins ...which is assumed by default.
                  -->
