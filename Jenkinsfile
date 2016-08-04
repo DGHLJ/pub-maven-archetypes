@@ -83,7 +83,6 @@ node {
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg install"
 
             stage 'Deploy to Nexus'
-            sh "cd parent-poms"
             //sh "${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true"
             //sh "cd .."
             sh "${mvnHome}/bin/mvn -s settings.xml -f parent-poms/pom.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
