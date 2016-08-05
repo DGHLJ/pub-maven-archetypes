@@ -89,7 +89,9 @@ node {
                 ${mvnHome}/bin/mvn -s ../settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
                """
 
+
             stage 'Release Staged Repository'
+            input 'Release staged repository?'
             sh """
                 cd parent-poms ;
                 OUTPUT=\$( ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ;
