@@ -73,6 +73,7 @@
                 <version>1.6.7</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
                     <skipStaging>true</skipStaging>
                     <!-- The Base URL of Nexus instance where we want to stage -->
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
