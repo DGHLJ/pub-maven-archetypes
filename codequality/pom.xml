@@ -133,21 +133,21 @@
                             <artifacts>
                                 <artifact>
                                     <file>
-                                        https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/jenkins/codequality/src/main/resources/codequality/checkstyle.xml
+                                        target/codequality-${project.version}-src/codequality-${project.version}/src/main/checkstyle/checkstyle.xml
                                     </file>
                                     <type>xml</type>
                                     <classifier>checkstyle</classifier>
                                 </artifact>
                                 <artifact>
                                     <file>
-                                        https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/jenkins/codequality/src/main/resources/codequality/FindBugsFilter.xml
+                                        target/codequality-${project.version}-src/codequality-${project.version}/src/main/findbugs/FindBugsFilter.xml
                                     </file>
                                     <type>xml</type>
                                     <classifier>FindBugsFilter</classifier>
                                 </artifact>
                                 <artifact>
                                     <file>
-                                        https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/jenkins/codequality/src/main/resources/codequality/pmd.xml
+                                        target/codequality-${project.version}-src/codequality-${project.version}/src/main/pmd/pmd.xml
                                     </file>
                                     <type>xml</type>
                                     <classifier>pmd</classifier>
