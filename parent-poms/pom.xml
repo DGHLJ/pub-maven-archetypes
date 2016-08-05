@@ -2360,5 +2360,26 @@
 		</profile>
 	</profiles>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <skipStaging>true</skipStaging>
+                    <!-- The Base URL of Nexus instance where we want to stage -->
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <serverId>oss.sonatype.org</serverId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->
 </project>
