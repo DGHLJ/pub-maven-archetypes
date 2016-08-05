@@ -76,8 +76,8 @@ node {
                 ${mvnHome}/bin/mvn -s settings.xml versions:set -DgroupId='*' -DartifactId='*' -DoldVersion='*' -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS
             """
             
-            //stage 'Clean'
-            //sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg clean"
+            stage 'Clean'
+            sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg clean"
 
             stage 'Install'
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg install"
