@@ -54,7 +54,7 @@ node {
 //                done
 //
 //                echo "######## END PER-DIR coreext-maven-plugin RE-INSTALLS ########";
-                
+//
 //                echo "######## BEGIN MULTI_MODULE coreext-maven-plugin RE-INSTALL ########";
 //                ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install -Dmaven.multiModuleProjectDirectory=. || true
 //                echo "######## END MULTI-MODULE RE-INSTALL ########"
@@ -86,8 +86,9 @@ node {
             sh "${mvnHome}/bin/mvn -s settings.xml -f parent-poms/pom.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy"
 
             stage 'Release Staged Repository'
-            sh "output=\$( ${mvnHome}/bin/mvn -s settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ; echo \$output"
-            sh "${mvnHome}/bin/mvn -s settings.xml nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$output -e"
+            sh """OUTPUT=\$( ${mvnHome}/bin/mvn -s settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ;
+                  echo \$OUTPUT ;
+                  ${mvnHome}/bin/mvn -s settings.xml nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$OUTPUT -e """
 
         }
         
