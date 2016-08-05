@@ -85,8 +85,7 @@ node {
             stage 'Deploy to Nexus'
             sh """
                 cd parent-poms ;
-                ${mvnHome}/bin/mvn -s ../settings.xml -f pom.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
-                cd ..
+                ${mvnHome}/bin/mvn -s ../settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
                """
 
             stage 'Release Staged Repository'
