@@ -40,25 +40,25 @@ node {
             sh 'echo $AWS_ACCESS_KEY_ID'
             sh 'echo $AWS_SECRET_ACCESS_KEY'
             
-            stage 'Install Extensions'
-            sh """
-                ( test -d .mvn && rm -rf .mvn ) || true
-                echo "######## BEGIN PER-DIR coreext-maven-plugin RE-INSTALL ########"
+//            stage 'Install Extensions'
+//            sh """
+//                ( test -d .mvn && rm -rf .mvn ) || true
+//                echo "######## BEGIN PER-DIR coreext-maven-plugin RE-INSTALL ########"
+//
+//                for pomf in */pom.xml ; do
+//                  pomd=\${pomf%/pom.xml}
+//                  ( test -d \${pomd}/.mvn && rm -rf .mvn ) || true
+//                  pushd \$pomd;
+//                  ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
+//                  popd;
+//                done
+//
+//                echo "######## END PER-DIR coreext-maven-plugin RE-INSTALLS ########";
                 
-                for pomf in */pom.xml ; do 
-                  pomd=\${pomf%/pom.xml}
-                  ( test -d \${pomd}/.mvn && rm -rf .mvn ) || true
-                  pushd \$pomd;
-                  ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
-                  popd;
-                done
-
-                echo "######## END PER-DIR coreext-maven-plugin RE-INSTALLS ########";
-                
-                echo "######## BEGIN MULTI_MODULE coreext-maven-plugin RE-INSTALL ########";
-                ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install -Dmaven.multiModuleProjectDirectory=. || true
-                echo "######## END MULTI-MODULE RE-INSTALL ########"
-            """
+//                echo "######## BEGIN MULTI_MODULE coreext-maven-plugin RE-INSTALL ########";
+//                ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install -Dmaven.multiModuleProjectDirectory=. || true
+//                echo "######## END MULTI-MODULE RE-INSTALL ########"
+//            """
             
             stage 'Set Version'
             sh """
