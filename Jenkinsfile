@@ -82,6 +82,19 @@ node {
             stage 'Install'
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg install"
 
+
+            stage 'Publish Unit Test Reports'
+            step([$class: 'JUnitResultArchiver', testResults: '**/TEST-*.xml'])
+
+            stage 'Publish Code Quality Reports'
+            step([$class: 'FindBugsPublisher', canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '', unHealthy: ''])
+            step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''])
+            step([$class: 'PmdPublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''])
+            step([$class: 'AnalysisPublisher', canComputeNew: false, defaultEncoding: '', healthy: '', unHealthy: ''])
+
+            stage 'Archive Artifacts'
+            step([$class: 'ArtifactArchiver', artifacts: '**/*.*', excludes: null])
+
             stage 'Deploy to Nexus'
             def userInput = input 'Release staged repository?'
             sh "echo $userInput"
@@ -106,18 +119,8 @@ node {
             }
 
         }
-        
-        stage 'Publish Unit Test Reports'
-        step([$class: 'JUnitResultArchiver', testResults: '**/TEST-*.xml'])
-       
-        stage 'Publish Code Quality Reports'
-        step([$class: 'FindBugsPublisher', canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '', unHealthy: ''])
-        step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''])
-        step([$class: 'PmdPublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''])
-        step([$class: 'AnalysisPublisher', canComputeNew: false, defaultEncoding: '', healthy: '', unHealthy: ''])
-        
-        stage 'Archive Artifacts'
-        step([$class: 'ArtifactArchiver', artifacts: '**/*.*', excludes: null])
+
         //slackSend color: 'good', message: 'Build finished: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)'
+
     }
 }
