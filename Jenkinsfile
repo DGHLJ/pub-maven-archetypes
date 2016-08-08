@@ -76,12 +76,10 @@ node {
                 echo "VERSION_NUMBER=\$VERSION_NUMBER" >> env.properties
                 echo "VERSION_NUMBER_WITH_SPECIFICATIONS=\$VERSION_NUMBER_WITH_SPECIFICATIONS" > env.properties
                 
-                ${mvnHome}/bin/mvn -s settings.xml versions:set -DgroupId='*' -DartifactId='*' -DoldVersion='*' -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS
+                ${mvnHome}/bin/mvn -s settings.xml versions:set -DgroupId='*' -DartifactId='*' -DoldVersion='*' -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS -e
             """
 
             stage 'Set Version'
-
-
 
             def currentThread = Thread.currentThread()
             def currentBuild = currentThread?.executable
