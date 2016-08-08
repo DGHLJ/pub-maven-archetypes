@@ -65,8 +65,8 @@ node {
                 echo "Deciding package version number"
     
                 VERSION_NUMBER=\$(${mvnHome}/bin/mvn -s settings.xml org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v '\\[')
-                VERSION_NUMBER_WITH_SPECIFICATIONS=\${VERSION_NUMBER/-SNAPSHOT/}.$short_commit.\$BUILD_NUMBER
-    
+                VERSION_NUMBER_WITH_SPECIFICATIONS=\${VERSION_NUMBER/-SNAPSHOT/}.\$BUILD_NUMBER-$short_commit
+
                 echo \$VERSION_NUMBER
                 echo \$VERSION_NUMBER_WITH_SPECIFICATIONS
     
