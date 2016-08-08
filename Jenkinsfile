@@ -82,13 +82,8 @@ node {
             stage 'Set Version'
 
             def buildNumber = currentBuild.number
-            def causes = currentBuild.rootBuild.getCauses()
 
             def description = ""
-
-            for (def cause : causes){
-            	description = description + " " + cause.getShortDescription()
-            }
 
             def envVarsMap = build.parent.builds[0].properties.get("envVars")
 
@@ -98,10 +93,7 @@ node {
 
             println("Version number is: " + versionNumberWithBuild)
 
-            description = versionNumberWithBuild + " -" + description
-            currentBuild.description = description
-
-            println("Build description is: " + description)
+            currentBuild.description = versionNumberWithBuild
             
             stage 'Clean'
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg clean"
