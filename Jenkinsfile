@@ -81,8 +81,6 @@ node {
 
             stage 'Set Version'
 
-            def currentThread = Thread.currentThread()
-            def currentBuild = currentThread?.executable
             def buildNumber = currentBuild.number
             def causes = currentBuild.rootBuild.getCauses()
 
@@ -92,7 +90,6 @@ node {
             	description = description + " " + cause.getShortDescription()
             }
 
-
             def envVarsMap = build.parent.builds[0].properties.get("envVars")
 
             def config = new HashMap()
@@ -101,7 +98,7 @@ node {
 
             println("Version number is: " + versionNumberWithBuild)
 
-            description = versionNumberWithBuild + " - " + description
+            description = versionNumberWithBuild + " -" + description
             currentBuild.description = description
 
             println("Build description is: " + description)
