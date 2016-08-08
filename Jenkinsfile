@@ -85,7 +85,11 @@ node {
 
             def description = ""
 
-            def versionNumberWithBuild = VERSION_NUMBER_WITH_SPECIFICATIONS
+            def envVarsMap = currentBuild.builds[0].properties.get("envVars")
+
+            def config = new HashMap()
+            config.putAll(envVarsMap)
+            def versionNumberWithBuild = config.get("VERSION_NUMBER_WITH_SPECIFICATIONS")
 
             println("Version number is: " + versionNumberWithBuild)
 
