@@ -80,7 +80,7 @@ node {
                 ${mvnHome}/bin/mvn -s settings.xml versions:set -DgroupId='*' -DartifactId='*' -DoldVersion='*' -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS -e
             """
 
-            stage 'Set Version'
+            stage 'Set Build Description'
 
             def buildNumber = currentBuild.number
             def description = ""
