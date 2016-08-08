@@ -72,24 +72,19 @@ node {
 
                 echo \$VERSION_NUMBER
                 echo \$VERSION_NUMBER_WITH_SPECIFICATIONS
-    
+
                 echo "VERSION_NUMBER=\$VERSION_NUMBER" >> env.properties
                 echo "VERSION_NUMBER_WITH_SPECIFICATIONS=\$VERSION_NUMBER_WITH_SPECIFICATIONS" > env.properties
-                
+                echo "\$VERSION_NUMBER_WITH_SPECIFICATIONS" > version.txt
+
                 ${mvnHome}/bin/mvn -s settings.xml versions:set -DgroupId='*' -DartifactId='*' -DoldVersion='*' -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS -e
             """
 
             stage 'Set Version'
 
             def buildNumber = currentBuild.number
-
             def description = ""
-
-            def envVarsMap = currentBuild.builds[0].properties.get("envVars")
-
-            def config = new HashMap()
-            config.putAll(envVarsMap)
-            def versionNumberWithBuild = config.get("VERSION_NUMBER_WITH_SPECIFICATIONS")
+            def versionNumberWithBuild = readFile("version.txt")
 
             println("Version number is: " + versionNumberWithBuild)
 
