@@ -1,3 +1,6 @@
+import hudson.model.*
+import hudson.util.*
+
 node {
     def workSpace = pwd()
     echo "${workSpace}"
@@ -78,8 +81,7 @@ node {
 
             stage 'Set Version'
 
-            import hudson.model.*
-            import hudson.util.*
+
 
             def currentThread = Thread.currentThread()
             def currentBuild = currentThread?.executable
