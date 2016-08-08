@@ -127,7 +127,6 @@ node {
 
             stage 'Release Staged Repository'
             sh """
-                cd parent-poms ;
                 OUTPUT=\$( ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ;
                 echo \$OUTPUT ;
                 ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$OUTPUT -e
