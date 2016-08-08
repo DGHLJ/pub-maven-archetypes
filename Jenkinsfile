@@ -99,24 +99,25 @@ node {
             def userInput = input 'Release staged repository?'
             sh "echo $userInput"
 
-            if(userInput!="abort"){
-                sh """
-                    cd parent-poms ;
-                    pwd ;
-                    ${mvnHome}/bin/mvn -s ../settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
-                   """
-            }
+            sh """
+                cd parent-poms ;
+                pwd ;
+                ${mvnHome}/bin/mvn -s ../settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
+                cd ../codequality ;
+                pwd ;
+                ${mvnHome}/bin/mvn -s ../settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
+                cd ../licenses ;
+                pwd ;
+                ${mvnHome}/bin/mvn -s ../settings.xml -Dmaven.test.failure.ignore -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg deploy;
+               """
 
             stage 'Release Staged Repository'
-
-            if(userInput!="abort"){
-                sh """
-                    cd parent-poms ;
-                    OUTPUT=\$( ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ;
-                    echo \$OUTPUT ;
-                    ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$OUTPUT -e
-                   """
-            }
+            sh """
+                cd parent-poms ;
+                OUTPUT=\$( ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:rc-list -DserverId=oss.sonatype.org | grep comlevonk | cut -d\\  -f2 ) ;
+                echo \$OUTPUT ;
+                ${mvnHome}/bin/mvn -s ../settings.xml nexus-staging:close nexus-staging:release -DstagingRepositoryId=\$OUTPUT -e
+               """
 
         }
 
