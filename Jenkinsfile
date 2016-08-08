@@ -75,6 +75,36 @@ node {
                 
                 ${mvnHome}/bin/mvn -s settings.xml versions:set -DgroupId='*' -DartifactId='*' -DoldVersion='*' -DnewVersion=\$VERSION_NUMBER_WITH_SPECIFICATIONS
             """
+
+            stage 'Set Version'
+
+            import hudson.model.*
+            import hudson.util.*
+
+            def currentThread = Thread.currentThread()
+            def currentBuild = currentThread?.executable
+            def buildNumber = currentBuild.number
+            def causes = currentBuild.rootBuild.getCauses()
+
+            def description = ""
+
+            for (def cause : causes){
+            	description = description + " " + cause.getShortDescription()
+            }
+
+
+            def envVarsMap = build.parent.builds[0].properties.get("envVars")
+
+            def config = new HashMap()
+            config.putAll(envVarsMap)
+            def versionNumberWithBuild = config.get("VERSION_NUMBER_WITH_SPECIFICATIONS")
+
+            println("Version number is: " + versionNumberWithBuild)
+
+            description = versionNumberWithBuild + " - " + description
+            currentBuild.description = description
+
+            println("Build description is: " + description)
             
             stage 'Clean'
             sh "${mvnHome}/bin/mvn -s settings.xml -Dmaven.test.failure.ignore -Dmaven.multiModuleProjectDirectory=. -Dgpg.passphrase=8185842015 -Dgpg.homedir=${workSpace}/.gnupg clean"
