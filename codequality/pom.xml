@@ -5,7 +5,7 @@
 
     <groupId>com.levonk</groupId>
     <artifactId>codequality</artifactId>
-    <version>1.3.6</version>
+    <version>1.3.7</version>
     <name>Code Quality Tools</name>
     <description>A set of static code analysis rules</description>
     <modelVersion>4.0.0</modelVersion>
@@ -67,17 +67,6 @@
     <build>
         <sourceDirectory>src/main/</sourceDirectory>
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <!-- The Base URL of Nexus instance where we want to stage -->
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <serverId>oss.sonatype.org</serverId>
-                </configuration>
-            </plugin>
             <plugin>
                 <!-- NOTE: We don't need a groupId specification because the group is
                      org.apache.maven.plugins ...which is assumed by default.
@@ -221,5 +210,26 @@
             <!--</plugin>-->
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>maven-central-release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <skipStaging>true</skipStaging>
+                            <!-- The Base URL of Nexus instance where we want to stage -->
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <serverId>oss.sonatype.org</serverId>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->
 </project>

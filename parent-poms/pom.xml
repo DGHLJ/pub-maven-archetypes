@@ -16,7 +16,7 @@
 	<artifactId>pom</artifactId>
 	<name>pom</name>
 	<url>none</url>
-	<version>1.3.6</version>
+    <version>1.3.7</version>
 	<packaging>pom</packaging>
 
     <licenses>
@@ -560,17 +560,7 @@
     -->
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <!-- The Base URL of Nexus instance where we want to stage -->
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <serverId>oss.sonatype.org</serverId>
-                </configuration>
-            </plugin>
+
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-site-plugin</artifactId>
@@ -1187,59 +1177,59 @@
 					<goals>install</goals>
 				</configuration>
 			</plugin>
-			<plugin>
-				<!-- @see https://github.com/sviperll/ozymandias/tree/master/coreext-maven-plugin -->
-				<groupId>com.github.sviperll</groupId>
-				<artifactId>coreext-maven-plugin</artifactId>
-				<version>${coreext.version}</version>
-				<configuration>
-					<!-- Required core extensions: -->
-					<extensions combine.children="append">
-						<extension>
-							<groupId>com.github.sviperll</groupId>
-							<artifactId>maven-profiledep-extension</artifactId>
-							<version>${profiledep.version}</version>
-						</extension>
-						<!--
-					            This seems to have been replaced
-					            @see http://takari.io/book/30-team-maven.html#concurrent-safe-local-repository
-						<extension>
-							<groupId>io.takari.maven</groupId>
-							<artifactId>takari-concurrent-localrepo</artifactId>
-							<version>${concurrentrepo.version}</version>
-						</extension>
-						<extension>
-							<groupId>io.takari.maven</groupId>
-							<artifactId>takari-smart-builder</artifactId>
-							<version>${smartbuilder.version}</version>
-						</extension>
-						-->
-					</extensions>
-				</configuration>
-				<executions>
-					<execution>
-						<id>check-coreext</id>
-						<goals>
-							<!--
-								If we dont' meet the requirements of our enviornment then
-								stop everything and complain.   Within Jenkins we should have
-								a pipeline step that will make the enviornment what we expect to be.
-								Something like:
-									* mvn clean
-									* mvn coreext:install
-									* mvn compile
-									* mvn test
-									* mvn integration-test
-									* mvn pitest:run
-									* mvn package
-							-->
-							<goal>check</goal>
-						</goals>
-						<!-- default phase is: -->
-						<!--	<phase>validate</phase>	-->
-					</execution>
-				</executions>
-			</plugin>
+			<!--<plugin>-->
+				<!--&lt;!&ndash; @see https://github.com/sviperll/ozymandias/tree/master/coreext-maven-plugin &ndash;&gt;-->
+				<!--<groupId>com.github.sviperll</groupId>-->
+				<!--<artifactId>coreext-maven-plugin</artifactId>-->
+				<!--<version>${coreext.version}</version>-->
+				<!--<configuration>-->
+					<!--&lt;!&ndash; Required core extensions: &ndash;&gt;-->
+					<!--<extensions combine.children="append">-->
+						<!--<extension>-->
+							<!--<groupId>com.github.sviperll</groupId>-->
+							<!--<artifactId>maven-profiledep-extension</artifactId>-->
+							<!--<version>${profiledep.version}</version>-->
+						<!--</extension>-->
+						<!--&lt;!&ndash;-->
+					            <!--This seems to have been replaced-->
+					            <!--@see http://takari.io/book/30-team-maven.html#concurrent-safe-local-repository-->
+						<!--<extension>-->
+							<!--<groupId>io.takari.maven</groupId>-->
+							<!--<artifactId>takari-concurrent-localrepo</artifactId>-->
+							<!--<version>${concurrentrepo.version}</version>-->
+						<!--</extension>-->
+						<!--<extension>-->
+							<!--<groupId>io.takari.maven</groupId>-->
+							<!--<artifactId>takari-smart-builder</artifactId>-->
+							<!--<version>${smartbuilder.version}</version>-->
+						<!--</extension>-->
+						<!--&ndash;&gt;-->
+					<!--</extensions>-->
+				<!--</configuration>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>check-coreext</id>-->
+						<!--<goals>-->
+							<!--&lt;!&ndash;-->
+								<!--If we dont' meet the requirements of our enviornment then-->
+								<!--stop everything and complain.   Within Jenkins we should have-->
+								<!--a pipeline step that will make the enviornment what we expect to be.-->
+								<!--Something like:-->
+									<!--* mvn clean-->
+									<!--* mvn coreext:install-->
+									<!--* mvn compile-->
+									<!--* mvn test-->
+									<!--* mvn integration-test-->
+									<!--* mvn pitest:run-->
+									<!--* mvn package-->
+							<!--&ndash;&gt;-->
+							<!--<goal>check</goal>-->
+						<!--</goals>-->
+						<!--&lt;!&ndash; default phase is: &ndash;&gt;-->
+						<!--&lt;!&ndash;	<phase>validate</phase>	&ndash;&gt;-->
+					<!--</execution>-->
+				<!--</executions>-->
+			<!--</plugin>-->
 
 			<plugin>
 				<!-- Navigate code by graphs -->
@@ -2405,6 +2395,25 @@
 				</plugins>
 			</build>
 		</profile>
+        <profile>
+            <id>maven-central-release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <skipStaging>true</skipStaging>
+                            <!-- The Base URL of Nexus instance where we want to stage -->
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <serverId>oss.sonatype.org</serverId>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 	</profiles>
 
     <!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->
