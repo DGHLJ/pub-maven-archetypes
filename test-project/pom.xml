@@ -9,6 +9,7 @@
         <version>1.3.7</version>
         <relativePath>../parent-poms</relativePath>
     </parent>
+    <groupId>com.levonk.codequality</groupId>
     <artifactId>test-project</artifactId>
     <version>1.3.6</version>
     <name>Test Project for Parent POM</name>
