@@ -720,31 +720,31 @@
 				mvn -U versions:display-plugin-updates
 				mvn -U versions:display-dependency-updates
 			-->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>${versions.version}</version>
-				<executions>
-					<execution>
-						<id>versions-maven-plugin</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>display-dependency-updates</goal>
-							<goal>display-plugin-updates</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<allowIncrementalUpdates>true</allowIncrementalUpdates>
-					<allowMajorUpdates>false</allowMajorUpdates>
-					<allowMinorUpdates>true</allowMinorUpdates>
-					<allowSnapshots>false</allowSnapshots>
-					<processDependencies>true</processDependencies>
-					<processDependencyManagement>true</processDependencyManagement>
-					<outputFile>target/versions-maven-plugin_outdated-dependencies.txt</outputFile>
-   					<rulesUri>https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/master/modules/build-tools/src/main/resources/versions-maven-plugin/versions-maven-plugin_rules.xml</rulesUri>
-				</configuration>
-			</plugin>
+			<!--<plugin>-->
+				<!--<groupId>org.codehaus.mojo</groupId>-->
+				<!--<artifactId>versions-maven-plugin</artifactId>-->
+				<!--<version>${versions.version}</version>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>versions-maven-plugin</id>-->
+						<!--<phase>verify</phase>-->
+						<!--<goals>-->
+							<!--<goal>display-dependency-updates</goal>-->
+							<!--<goal>display-plugin-updates</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<!--<configuration>-->
+					<!--<allowIncrementalUpdates>true</allowIncrementalUpdates>-->
+					<!--<allowMajorUpdates>false</allowMajorUpdates>-->
+					<!--<allowMinorUpdates>true</allowMinorUpdates>-->
+					<!--<allowSnapshots>false</allowSnapshots>-->
+					<!--<processDependencies>true</processDependencies>-->
+					<!--<processDependencyManagement>true</processDependencyManagement>-->
+					<!--<outputFile>target/versions-maven-plugin_outdated-dependencies.txt</outputFile>-->
+   					<!--<rulesUri>https://raw.githubusercontent.com/DGHLJ/pub-maven-archetypes/master/modules/build-tools/src/main/resources/versions-maven-plugin/versions-maven-plugin_rules.xml</rulesUri>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
             <plugin>
 				<!--
 					https://github.com/andrewgaul/modernizer-maven-plugin
