@@ -2,11 +2,12 @@ import hudson.model.*
 import hudson.util.*
 
 node {
-    deleteDir()
 
     def workSpace = pwd()
     echo "${workSpace}"
     println env
+
+    sh 'pwd'
 
     stage 'Removing GPG Keys from Jenkins'
     sh '''rm -rf ''' + workSpace + '''/.gnupg'''
