@@ -14,7 +14,7 @@
 
 	<groupId>com.levonk.codequality</groupId>
 	<artifactId>pom</artifactId>
-	<name>pom</name>
+	<name>Parent POM</name>
 	<url>none</url>
     <version>1.3.7</version>
 	<packaging>pom</packaging>
@@ -1190,9 +1190,6 @@
 							<artifactId>maven-profiledep-extension</artifactId>
 							<version>${profiledep.version}</version>
 						</extension>
-						<!--
-					            This seems to have been replaced
-					            @see http://takari.io/book/30-team-maven.html#concurrent-safe-local-repository
 						<extension>
 							<groupId>io.takari.maven</groupId>
 							<artifactId>takari-concurrent-localrepo</artifactId>
@@ -1203,7 +1200,6 @@
 							<artifactId>takari-smart-builder</artifactId>
 							<version>${smartbuilder.version}</version>
 						</extension>
-						-->
 					</extensions>
 				</configuration>
 				<executions>
@@ -2080,7 +2076,6 @@
                 </plugins>
             </build>
         </profile>
-		
 		<profile>
 			<id>log4j-slf4j-test</id>
 			<activation>

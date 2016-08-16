@@ -417,4 +417,4 @@ modules/
 .hgsubstate
 .hgtags
 
-
+*/.mvn/
