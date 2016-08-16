@@ -45,17 +45,20 @@ node {
             
             stage 'Install Extensions'
             sh """
-                rm -rf .mvn
-                for i in \$(ls -d */);
-                do
-                    if [ -f \${i}pom.xml ]; then
-                        cd \${i}
-                        rm -rf .mvn
-                        mvn com.github.sviperll:coreext-maven-plugin:install || true
-                        cd ..
-                    fi
-                done
-                mvn com.github.sviperll:coreext-maven-plugin:install || true
+
+            rm -rf .mvn
+            ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
+
+            for i in \$(ls -d */);
+            do
+                if [ -f \${i}pom.xml ]; then
+                    cd \${i}
+                    rm -rf .mvn
+                    ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
+                    cd ..
+                fi
+            done
+
             """
             
             stage 'Set Version'
