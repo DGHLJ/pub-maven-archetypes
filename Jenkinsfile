@@ -45,23 +45,17 @@ node {
             
             stage 'Install Extensions'
             sh """
-                ( test -d .mvn && rm -rf .mvn ) || true
-                echo ">>>>>> BEGIN PER-DIR coreext-maven-plugin RE-INSTALL <<<<<<"
+                rm -rf .mvn
                 for i in \$(ls -d */);
                 do
                     if [ -f \${i}pom.xml ]; then
                         cd \${i}
-                        if [ ! -d ".mvn" ]; then
-                            ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
-                        fi
+                        rm -rf .mvn
+                        mvn com.github.sviperll:coreext-maven-plugin:install || true
                         cd ..
                     fi
                 done
-                echo ">>>>>> END PER-DIR coreext-maven-plugin RE-INSTALLS <<<<<<";
-
-                echo ">>>>>> BEGIN MULTI_MODULE coreext-maven-plugin RE-INSTALL <<<<<<";
-                ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
-                echo ">>>>>> END MULTI-MODULE RE-INSTALL <<<<<<"
+                mvn com.github.sviperll:coreext-maven-plugin:install || true
             """
             
             stage 'Set Version'
