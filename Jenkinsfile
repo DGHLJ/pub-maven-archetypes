@@ -25,6 +25,8 @@ node {
         popd
     }'''
 
+    input 'Stop?'
+
     sshagent(['fe4a50a5-925d-4769-9a7b-dab6e610f202']) {
         //slackSend color: 'good', message: 'Build started: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)'
         stage 'Checkout'
