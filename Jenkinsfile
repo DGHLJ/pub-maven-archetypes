@@ -46,9 +46,6 @@ node {
             stage 'Install Extensions'
             sh """
 
-            rm -rf .mvn
-            ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install || true
-
             for i in \$(ls -d */);
             do
                 if [ -f \${i}pom.xml ]; then
@@ -58,6 +55,9 @@ node {
                     cd ..
                 fi
             done
+
+            rm -rf .mvn
+            ${mvnHome}/bin/mvn -s ${workSpace}/settings.xml com.github.sviperll:coreext-maven-plugin:install -Dmaven.multiModuleProjectDirectory=. || true
 
             """
             
