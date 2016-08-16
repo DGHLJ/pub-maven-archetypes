@@ -1191,8 +1191,8 @@
 							<version>${profiledep.version}</version>
 						</extension>
 						<extension>
-							<groupId>io.takari.maven</groupId>
-							<artifactId>takari-concurrent-localrepo</artifactId>
+							<groupId>io.takari.aether</groupId>
+							<artifactId>takari-local-repository</artifactId>
 							<version>${concurrentrepo.version}</version>
 						</extension>
 						<extension>
