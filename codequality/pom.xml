@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<groupId>com.levonk</groupId>
 	<artifactId>codequality</artifactId>
-	<version>2.0.104-SNAPSHOT</version>
+	<version>2.0.105-SNAPSHOT</version>
 	<name>Code Quality Tools</name>
 	<description>A set of static code analysis rules</description>
 	<parent>
 		<groupId>com.levonk</groupId>
 		<artifactId>maven-codequalities-parent</artifactId>
-		<version>2.0.104-SNAPSHOT</version>
+		<version>2.0.105-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
