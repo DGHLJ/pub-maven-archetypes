@@ -220,6 +220,7 @@ node {
 		println "[Jenkinsfile] @TODO Update Changemanagement"
 		println "[Jenkinsfile] @TODO Set Moniotring Markers"
 		println "[Jenkinsfile] @TODO Communicate Stage"
+		println "[Jenkinsfile] @TODO Create a Release Draft https://developer.github.com/v3/repos/releases/#create-a-release
 /*
                 sh """
                     STAGING_REPO_IN=\$( ${mvnCmd} nexus-staging:rc-list -DserverId=oss.sonatype.org -DnexusUrl=https://oss.sonatype.org/ -P maven-central-release ) ;
@@ -237,6 +238,7 @@ node {
                 final String userInputProd = input "Promote in stage repository '${env.STAGING_REPO}' to release repository?"
                 println "[Jenkinsfile] Promote stage repo to '${env.STAGING_REPO}' response $userInputProd"
 				sh "${mvnCmd} -X -e nexus-staging:close nexus-staging:release -DstagingRepositoryId=\\${STAGING_REPO} -P maven-central-release"
+				println "[Jenkinsfile] @TODO Edit Release to make it a published release
 			}
 		}
 	}
