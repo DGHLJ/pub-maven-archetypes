@@ -199,6 +199,7 @@
 		<jdeps.version>3.0.0</jdeps.version> <!-- 2017-02-18 -->
 		<jmeter.version>2.1.0</jmeter.version> <!-- 2017-04-17 -->
 		<jqassistant.version>1.1.3</jqassistant.version> <!-- 2016-07-20 -->
+		<junit-quickcheck-core.version>0.7</junit-quickcheck-core.version>	<!-- 2017-05-05 -->
 		<jxr.version>2.5</jxr.version> <!-- 2017-03-09 -->
 		<libthrift.version>0.10.0</libthrift.version> <!-- 2017-02-05 -->
 		<license.version>1.9</license.version> <!-- 2016-05-29 -->
@@ -3166,6 +3167,17 @@
 					<exists>${basedir}/src/test/java</exists>
 				</file>
 			</activation>
+			<dependencyManagement>
+				<dependencies>
+					<dependency>
+						<artifactId>junit-quickcheck-core</artifactId>
+						<!-- @see http://baasie.com/2017/05/03/property-based-testing-in-java-with-junit-quickcheck-part-1-the-basics/ -->
+						<groupId>com.pholser</groupId>
+						<version>${junit-quickcheck-core.version}</version>
+						<scope>test</scope>
+					</dependency>
+				</dependencies>
+			</dependencyManagement>
 			<dependencies>
 				<!-- Unit Testing Dependencies -->
 				<dependency>
