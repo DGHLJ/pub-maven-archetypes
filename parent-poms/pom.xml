@@ -864,6 +864,7 @@
 								</rule>
 							</rules>
 						</configuration>
+						<phase>deploy</phase>
 					</execution>
 					<execution>
 						<id>enforce-banned-dependencies</id>
@@ -1089,7 +1090,7 @@
 						<goals>
 							<goal>verify</goal>
 						</goals>
-						<phase>pre-integration-test</phase>
+						<phase>deploy</phase>
 					</execution>
 				</executions>
 				<dependencies>
@@ -1367,7 +1368,7 @@
 						<goals>
 							<goal>audit</goal>
 						</goals>
-						<phase>verify</phase>
+						<phase>deploy</phase>
 					</execution>
 				</executions>
 			</plugin>
@@ -1393,7 +1394,7 @@
 						<goals>
 							<goal>check</goal>
 						</goals>
-						<phase>verify</phase>
+						<phase>deploy</phase>
 					</execution>
 				</executions>
 			</plugin>
