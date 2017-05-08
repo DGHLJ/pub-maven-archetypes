@@ -154,7 +154,7 @@
 		<concurrentrepo.version>0.11.2</concurrentrepo.version> <!-- 2015-08-18 -->
 		<contract.version>0.0.6</contract.version>	<!-- 2017-04-15 -->
 		<coreext.version>0.22</coreext.version> <!-- as of 2016-12-11 -->
-		<dependency.version>3.0.0</dependency.version> <!-- 2016-12-19 -->
+		<maven-dependency-plugin.version>3.0.0</maven-dependency-plugin.version> <!-- 2016-12-19 -->
 		<dependencycheck.version>1.4.5</dependencycheck.version> <!-- 2017-03-09 -->
 		<doclava.version>1.0.6</doclava.version>
 		<echo-maven-plugin.version>1.2.0</echo-maven-plugin.version> <!-- 2016-11-21 -->
@@ -1217,7 +1217,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>${dependency.version}</version>
+				<version>${maven-dependency-plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
