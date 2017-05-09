@@ -228,7 +228,7 @@
 		<pitest.version>1.1.6</pitest.version> <!-- 2015-09-29 -->
 		<plexusCompiler.version>2.8.1</plexusCompiler.version> <!-- 2017-03-28 -->
 		<plexusCompilerErrorProne.version>2.8.1</plexusCompilerErrorProne.version> <!-- 2017-03-28 -->
-		<pmd.version>3.7</pmd.version> <!-- 2016-12-11 -->
+		<pmd.version>3.8</pmd.version>	<!-- 2017-05-09 -->
 		<pojava.version>3.0.3</pojava.version>	<!-- 2017-04-15 -->
 		<pojomatic.version>1.0</pojomatic.version>
 		<principle.version>0.37</principle.version> <!-- 2017-02-02 -->
