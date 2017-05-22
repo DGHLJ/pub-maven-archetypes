@@ -221,7 +221,7 @@
 		<mockito.version>2.0.2-beta</mockito.version>	<!-- 2017-04-16  -->
 		<modernizer.version>1.4.0</modernizer.version> <!-- 2015-10-06 -->
 		<newrelic.version>3.21.0</newrelic.version> <!-- 2015-10-06 -->
-		<nexusclm.version>2.4.1</nexusclm.version> <!-- 2015-10-22 -->
+		<nexusclm.version>2.6.0-01</nexusclm.version>	<!-- 2017-05-22 -->
 		<nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version> <!-- 2016-12-22 -->
 		<opentracing.version>0.21.0</opentracing.version>	<!-- 2017-04-15 -->
 		<ossindex-maven-plugin.version>2.1.1</ossindex-maven-plugin.version>	<!-- 2017-04-14 -->
@@ -2048,10 +2048,11 @@
 						<version>${nexusclm.version}</version>
 						<executions>
 							<execution>
+								<inherited>false</inherited>	<!-- false: no duplication, just aggregate -->
 								<goals>
 									<goal>evaluate</goal>
 								</goals>
-								<phase>site</phase>
+								<phase>pre-site</phase>
 								<configuration>
 									<!-- wanring: calling this nexusclm.serverUrl causes plugin to fail -->
 									<serverUrl>${clm.serverUrl}</serverUrl>
