@@ -220,7 +220,7 @@ node {
 		println "[Jenkinsfile] @TODO Update Changemanagement"
 		println "[Jenkinsfile] @TODO Set Moniotring Markers"
 		println "[Jenkinsfile] @TODO Communicate Stage"
-		println "[Jenkinsfile] @TODO Create a Release Draft https://developer.github.com/v3/repos/releases/#create-a-release
+		println "[Jenkinsfile] @TODO Create a Release Draft https://developer.github.com/v3/repos/releases/#create-a-release"
 /*
                 sh """
                     STAGING_REPO_IN=\$( ${mvnCmd} nexus-staging:rc-list -DserverId=oss.sonatype.org -DnexusUrl=https://oss.sonatype.org/ -P maven-central-release ) ;
