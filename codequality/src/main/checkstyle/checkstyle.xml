@@ -3225,7 +3225,7 @@
 			<!-- maximum allowable number of lines.
 				default: 150
 			-->
-			<property name="max" value="50" />
+			<property name="max" value="150" />
 			<property name="severity" value="warning" />
 			<!-- blocks to check.
 				default: METHOD_DEF, CTOR_DEF
