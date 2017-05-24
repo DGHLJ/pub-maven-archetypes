@@ -3225,30 +3225,13 @@
 			<!-- maximum allowable number of lines.
 				default: 150
 			-->
-			<property name="max" value="50" />
+			<property name="max" value="150" />
 			<property name="severity" value="warning" />
 			<!-- blocks to check.
 				default: METHOD_DEF, CTOR_DEF
 			<property name="tokens" value="METHOD_DEF, CTOR_DEF" />
 			-->
 		</module>
-		<module name="MethodLength">
-			<!-- whether to count empty lines and single
-				line comments of the form //
-				default: true
-			-->
-			<property name="countEmpty" value="false" />
-			<!-- maximum allowable number of lines.
-				default: 150
-			-->
-			<property name="max" value="150" />
-			<property name="severity" value="error" />
-			<!-- blocks to check.
-				default: METHOD_DEF, CTOR_DEF
-			<property name="tokens" value="METHOD_DEF, CTOR_DEF" />
-			-->
-		</module>
-
 
 		<!--
 			Checks for the number of types declared at the
