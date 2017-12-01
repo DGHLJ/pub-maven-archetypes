@@ -245,6 +245,7 @@
 		<smartbuilder.version>0.4.1</smartbuilder.version> <!-- 2015-06-10 -->
 		<sonar.version>2.3</sonar.version> <!-- 2015-09-29 -->
 		<source.version>3.0.1</source.version> <!-- 2016-06-24 -->
+		<spark-nlp.version>1.2.3</spark-nlp.version> <!-- 2017-12-01 -->
 		<spotbugs.version>3.1.0-RC1</spotbugs.version> <!-- 2017-03-11 -->
 		<surefire.version>2.20</surefire.version> <!-- 2017-04-15 -->
 		<testng.version>6.11</testng.version> <!-- 2017-04-16 -->
@@ -618,6 +619,13 @@
 				<groupId>com.shekhargulati</groupId>
 				<artifactId>image-resolver</artifactId>
 				<version>${imageresolver.version}</version>
+			</dependency>
+			<!-- Natural Language Processing for Apache Spark -->
+			<!-- @see https://github.com/johnsnowlabs/spark-nlp http://nlp.johnsnowlabs.com/ -->
+			<dependency>
+				<groupId>com.johnsnowlabs.nlp</groupId>
+				<artifactId>spark-nlp_2.11</artifactId>
+				<version>${spark-nlp.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
