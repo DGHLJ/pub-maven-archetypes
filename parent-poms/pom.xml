@@ -145,7 +145,7 @@
 		<duplicate.version>1.2.1</duplicate.version> <!-- 2015-10-06 -->
 		<spring-boot.version>1.5.2.RELEASE</spring-boot.version> <!-- 2017-03-14 -->
 		<spring-boot-admin-server.version>1.4.4</spring-boot-admin-server.version> <!-- 2016-12-28 -->
-		<checkstyle.version>2.17</checkstyle.version> <!-- 2015-10-06 -->
+		<checkstyle.version>3.0.0</checkstyle.version> <!-- 2018-01-09 -->
 		<checkstylepuppycrawl.version>6.11.2</checkstylepuppycrawl.version> <!-- 2015-10-06 -->
 		<clover-maven-plugin.version>4.1.2</clover-maven-plugin.version>	<!-- 2017-04-12 look for OSS version -->
 		<commonslang.version>2.6</commonslang.version>
