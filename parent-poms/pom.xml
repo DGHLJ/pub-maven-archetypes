@@ -116,6 +116,8 @@
 		<!-- @see https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html -->
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
+		<!-- -DtrimStackTrace=false test failures should generate full stack traces https://issues.apache.org/jira/browse/SUREFIRE-1457 -->
+		<trimStackTrace>false</trimStackTrace>
 		<!-- Checker Framework -->
 		<!-- These properties will be set by the Maven Dependency plugin -->
 		<!-- Change to jdk7 if using Java 7 -->
