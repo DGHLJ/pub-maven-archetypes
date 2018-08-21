@@ -138,6 +138,7 @@
 		<antlr4.version>4.5.1-1</antlr4.version> <!-- 2015-10-06 -->
 		<antrun.version>1.8</antrun.version>
 		<archetype.version>3.0.1</archetype.version> <!-- 2017-04-19 -->
+		<archunit.version>0.9.1<archunit.version>	<!-- 2018-08-21 -->
 		<avro.version>1.8.1</avro.version>	<!-- 2017-04-15 -->
 		<bijection.version>0.9.5</bijection.version> <!-- 2017-03-06 -->
 		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>	<!-- 2017-03-16 -->
@@ -283,7 +284,7 @@
 			<dependency>
 				<groupId>com.tngtech.archunit</groupId>
 				<artifactId>archunit</artifactId>
-				<version>0.9.1</version>
+				<version>${archunit.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<!-- Type Safety Annotations -->
