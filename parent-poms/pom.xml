@@ -277,6 +277,15 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+			<!-- Architecture Unit Tests -->
+			<!-- @see https://www.archunit.org/ -->
+			<!-- @alternative https://github.com/TNG/ArchUnit -->
+			<dependency>
+				<groupId>com.tngtech.archunit</groupId>
+				<artifactId>archunit</artifactId>
+				<version>0.9.1</version>
+				<scope>test</scope>
+			</dependency>
 			<!-- Type Safety Annotations -->
 			<dependency>
 				<!-- groupId>net.sourceforge.findbugs</groupId -->
